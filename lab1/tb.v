@@ -27,13 +27,13 @@ module tb;
         btnS = 0;
         #1000 btnR = 0;
         #1500000;
-		//
-        /* $readmemb("seq.code", instructions);
+		
+        $readmemb("seq.code", instructions);
         for (i = 0; i < instructions[0]; i = i + 1) begin
 			tskRunInst(instructions[i + 1][7:0]);
 		end
         #1000;        
-        $finish; */
+        $finish; 
      end
 
    always #5 clk = ~clk;
