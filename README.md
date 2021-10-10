@@ -1,1 +1,1 @@
-# CS-M152A
+CS M152A Fall 2021
