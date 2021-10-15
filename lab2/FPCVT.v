@@ -18,6 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+
 module FPCVT(D, S, E, F);
 input [11:0] D;			//Data
 output S;			//Sign 
@@ -40,7 +41,6 @@ endmodule
 module sign_mag(D, D_abs);
 input [11:0] D;
 output reg [11:0] D_abs;
-
 always @* begin
 	if (D == -12'd2048) 
 		D_abs = 12'd2047; 
@@ -49,7 +49,6 @@ always @* begin
 	else 
 		D_abs = D;
 end
-	
 endmodule
 
 
@@ -59,7 +58,6 @@ input [11:0] D_abs;
 reg unsigned [3:0] i;
 output reg unsigned [3:0] lz;
 output reg [2:0] E;
-
 always @* begin
 	/*
 	//if all zeroes, lz is never assigned in for loop so do it here
@@ -70,13 +68,11 @@ always @* begin
 			i = -1;
 		end
 	end*/
-	
 	i = 4'd11;
 	while (D_abs[i] != 1) begin
 		i = i - 1;
 	end
 	lz = 11 - i;
-	
 	case(lz)
 		4'd1: E = 3'd7;
 		4'd2: E = 3'd6;
@@ -87,6 +83,5 @@ always @* begin
 		4'd7: E = 3'd1;
 		default: E = 0;
 	endcase
-end 
-	
+end 	
 endmodule
