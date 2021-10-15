@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/ise/git152a/lab2/leading_0s_bits_tb_isim_beh.exe" -prj "/home/ise/git152a/lab2/leading_0s_bits_tb_beh.prj" "work.leading_0s_bits_tb" "work.glbl" 
