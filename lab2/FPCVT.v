@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module FPCVT(D, S, E, F);
 input [11:0] D;			//Data
-output S;					//Sign 
+output S;			//Sign 
 output reg [2:0] E;		//Exponent
 output reg [3:0] F;		//Significand
 
@@ -49,6 +49,7 @@ always @* begin
 	else 
 		D_abs = D;
 end
+	
 endmodule
 
 
@@ -87,7 +88,5 @@ always @* begin
 		default: E = 0;
 	endcase
 end 
-
+	
 endmodule
- 
-
