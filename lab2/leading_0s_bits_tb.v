@@ -28,16 +28,18 @@ module leading_0s_bits_tb;
 	reg [11:0] D_abs;
 
 	// Outputs
-	wire [3:0] lz;
+	wire [7:0] lz;
 	wire [2:0] E;
 	wire [3:0] F;
+	reg rounding_bit;
 
 	// Instantiate the Unit Under Test (UUT)
 	leading_0s_bits uut (
 		.D_abs(D_abs),  
 		.lz(lz), 
 		.E(E),
-		.F(F)
+		.F(F),
+		.rounding_bit(rounding_bit)
 	);
 
 	initial begin

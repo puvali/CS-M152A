@@ -32,7 +32,9 @@ sign_mag sm(D, D_abs);
 
 //Leading zeroes
 wire [3:0] i, lz;
-leading_0s_bits lzb(D_abs, lz, E, F);
+leading_0s_bits lzb(D_abs, lz, E, F, rounding_bit);
+
+
 	
 endmodule
 
@@ -53,12 +55,13 @@ endmodule
 
 
 
-module leading_0s_bits(D_abs, lz, E, F);
+module leading_0s_bits(D_abs, lz, E, F, rounding_bit);
 input [11:0] D_abs;
-reg unsigned [3:0] i;
-output reg unsigned [3:0] lz;
+reg [7:0] i;
+output reg [7:0] lz;
 output reg [2:0] E;
 output reg [3:0] F;
+output reg rounding_bit;
 always @* begin
 	/*
 	//if all zeroes, lz is never assigned in for loop so do it here
@@ -69,33 +72,43 @@ always @* begin
 			i = -1;
 		end
 	end*/
-	i = 4'd11;
+	
+	i = 8'd11;
 	while (D_abs[i] != 1) begin
 		i = i - 1;
-	end
-	lz = 4'd11 - i;
+	end //end while
+	lz = 8'd11 - i;
+	
 	case(lz)
-		4'd1: E = 3'd7;
-		4'd2: E = 3'd6;
-		4'd3: E = 3'd5;
-		4'd4: E = 3'd4;
-		4'd5: E = 3'd3;
-		4'd6: E = 3'd2;
-		4'd7: E = 3'd1;
+		8'd1: E = 3'd7;
+		8'd2: E = 3'd6;
+		8'd3: E = 3'd5;
+		8'd4: E = 3'd4;
+		8'd5: E = 3'd3;
+		8'd6: E = 3'd2;
+		8'd7: E = 3'd1;
 		default: E = 0;
 	endcase
-	if(4'd1 <= lz <= 4'd8) begin
+	
+	//to find F
+	if(lz >= 8'd1 && lz <= 8'd8) begin
 		F[3] = D_abs[i];
 		F[2] = D_abs[i-1];
 		F[1] = D_abs[i-2];
 		F[0] = D_abs[i-3];
-	end
+	end //end if
 	else begin
 		F[3] = D_abs[3];
 		F[2] = D_abs[2];
 		F[1] = D_abs[1];
 		F[0] = D_abs[0];
 	end
+	
+	//5th leading bit is the rounding bit
+	if (lz < 8'd8)
+		rounding_bit = D_abs[i-4];
+	else 
+		rounding_bit = 0;
 end 	
 endmodule
 
