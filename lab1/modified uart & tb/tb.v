@@ -3,7 +3,7 @@
 module tb;
 
    reg [7:0] sw;
-   reg [15:0] instructions [1023:0];
+   reg [7:0] insns [1023:0];
    reg       clk;
    reg       btnS;
    reg       btnR;
@@ -16,8 +16,8 @@ module tb;
    wire                 RsTx;                   // From uut_ of nexys3.v
    wire [7:0]           led;                    // From uut_ of nexys3.v
    // End of automatics
-
-   initial
+   
+	initial
      begin
         //$shm_open  ("dump", , ,1);
         //$shm_probe (tb, "ASTF");
@@ -27,14 +27,27 @@ module tb;
         btnS = 0;
         #1000 btnR = 0;
         #1500000;
+        
+        /*
+		  tskRunPUSH(0,4);
+        tskRunPUSH(0,0);
+        tskRunPUSH(1,3);
+        tskRunMULT(0,1,2);
+        tskRunADD(2,0,3);
+        tskRunSEND(0);
+        tskRunSEND(1);
+        tskRunSEND(2);
+        tskRunSEND(3);*/
 		
-        $readmemb("seq.code", instructions);
-        for (i = 0; i < instructions[0]; i = i + 1) begin
-			tskRunInst(instructions[i + 1][7:0]);
+		$readmemb("seq.code", insns);
+		
+		for (i = 0; i < insns[0]; i = i + 1) begin
+			tskRunInst(insns[i + 1]);
 		end
-        #1000;        
-        $finish; 
-     end
+      
+		#1000;
+		$finish; 
+	end
 
    always #5 clk = ~clk;
    
