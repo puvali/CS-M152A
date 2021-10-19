@@ -16,8 +16,6 @@ module tb;
    wire [7:0]           led;                    // From uut_ of nexys3.v
    // End of automatics
 
-	wire [15:0] rf [3:0];
-	
    initial
      begin
         //$shm_open  ("dump", , ,1);
@@ -65,9 +63,7 @@ module tb;
                 .btnS                   (btnS),
                 .btnR                   (btnR),
                 .clk                    (clk));
-					 
-	seq_rf uut1 (.rf							 (rf[3:0][15:0]));
-	
+
    task tskRunInst;
       input [7:0] inst;
       begin
