@@ -30,12 +30,14 @@ module leading_0s_bits_tb;
 	// Outputs
 	wire [3:0] lz;
 	wire [2:0] E;
+	wire [3:0] F;
 
 	// Instantiate the Unit Under Test (UUT)
 	leading_0s_bits uut (
 		.D_abs(D_abs),  
 		.lz(lz), 
-		.E(E)
+		.E(E),
+		.F(F)
 	);
 
 	initial begin

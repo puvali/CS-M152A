@@ -32,7 +32,7 @@ sign_mag sm(D, D_abs);
 
 //Leading zeroes
 wire [3:0] i, lz;
-leading_0s_bits lzb(D_abs, lz, E);
+leading_0s_bits lzb(D_abs, lz, E, F);
 	
 endmodule
 
@@ -53,11 +53,12 @@ endmodule
 
 
 
-module leading_0s_bits(D_abs, lz, E);
+module leading_0s_bits(D_abs, lz, E, F);
 input [11:0] D_abs;
 reg unsigned [3:0] i;
 output reg unsigned [3:0] lz;
 output reg [2:0] E;
+output reg [3:0] F;
 always @* begin
 	/*
 	//if all zeroes, lz is never assigned in for loop so do it here
@@ -72,7 +73,7 @@ always @* begin
 	while (D_abs[i] != 1) begin
 		i = i - 1;
 	end
-	lz = 11 - i;
+	lz = 4'd11 - i;
 	case(lz)
 		4'd1: E = 3'd7;
 		4'd2: E = 3'd6;
@@ -83,5 +84,21 @@ always @* begin
 		4'd7: E = 3'd1;
 		default: E = 0;
 	endcase
+	if(4'd1 <= lz <= 4'd8) begin
+		F[3] = D_abs[i];
+		F[2] = D_abs[i-1];
+		F[1] = D_abs[i-2];
+		F[0] = D_abs[i-3];
+	end
+	else begin
+		F[3] = D_abs[3];
+		F[2] = D_abs[2];
+		F[1] = D_abs[1];
+		F[0] = D_abs[0];
+	end
 end 	
 endmodule
+
+
+
+
