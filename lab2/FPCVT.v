@@ -55,13 +55,13 @@ endmodule
 
 
 
-module leading_0s_bits(D_abs, lz, E, F, rounding_bit);
+module leading_0s_bits(D_abs, lz, E, F, rndg_bit);
 input [11:0] D_abs;
 reg [7:0] i;
 output reg [7:0] lz;
 output reg [2:0] E;
 output reg [3:0] F;
-output reg rounding_bit;
+output reg rndg_bit;
 always @* begin
 	/*
 	//if all zeroes, lz is never assigned in for loop so do it here
@@ -91,24 +91,25 @@ always @* begin
 	endcase
 	
 	//to find F
-	if(lz >= 8'd1 && lz <= 8'd8) begin
+	if(lz >= 8'd1 && lz < 8'd8) begin
 		F[3] = D_abs[i];
 		F[2] = D_abs[i-1];
 		F[1] = D_abs[i-2];
 		F[0] = D_abs[i-3];
-	end //end if
-	else begin
+		rndg_bit = D_abs[i-4];
+	end else if (lz == 8'd8) begin
+		F[3] = D_abs[i];
+		F[2] = D_abs[i-1];
+		F[1] = D_abs[i-2];
+		F[0] = D_abs[i-3];	
+		rndg_bit = 1'b0;
+	end else begin
 		F[3] = D_abs[3];
 		F[2] = D_abs[2];
 		F[1] = D_abs[1];
 		F[0] = D_abs[0];
+		rndg_bit = 1'b0;
 	end
-	
-	//5th leading bit is the rounding bit
-	if (lz < 8'd8)
-		rounding_bit = D_abs[i-4];
-	else 
-		rounding_bit = 0;
 end 	
 endmodule
 

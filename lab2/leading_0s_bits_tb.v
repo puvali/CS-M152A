@@ -31,7 +31,7 @@ module leading_0s_bits_tb;
 	wire [7:0] lz;
 	wire [2:0] E;
 	wire [3:0] F;
-	reg rounding_bit;
+	wire rndg_bit;
 
 	// Instantiate the Unit Under Test (UUT)
 	leading_0s_bits uut (
@@ -39,7 +39,7 @@ module leading_0s_bits_tb;
 		.lz(lz), 
 		.E(E),
 		.F(F),
-		.rounding_bit(rounding_bit)
+		.rndg_bit(rndg_bit)
 	);
 
 	initial begin
