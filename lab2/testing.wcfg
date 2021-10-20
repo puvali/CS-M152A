@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/ise/git152a/lab2/FPCVT_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="FPCVT_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/FPCVT_tb/D" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">D[11:0]</obj_property>
+      <obj_property name="ObjectShortName">D[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FPCVT_tb/uut/D_abs" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">D_abs[11:0]</obj_property>
+      <obj_property name="ObjectShortName">D_abs[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FPCVT_tb/uut/lz" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">lz[3:0]</obj_property>
+      <obj_property name="ObjectShortName">lz[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FPCVT_tb/uut/raw_E" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">raw_E[2:0]</obj_property>
+      <obj_property name="ObjectShortName">raw_E[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FPCVT_tb/uut/raw_F" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">raw_F[3:0]</obj_property>
+      <obj_property name="ObjectShortName">raw_F[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FPCVT_tb/uut/rndg_bit" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rndg_bit</obj_property>
+      <obj_property name="ObjectShortName">rndg_bit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FPCVT_tb/E" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">E[2:0]</obj_property>
+      <obj_property name="ObjectShortName">E[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FPCVT_tb/F" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">F[3:0]</obj_property>
+      <obj_property name="ObjectShortName">F[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FPCVT_tb/S" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">S</obj_property>
+      <obj_property name="ObjectShortName">S</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FPCVT_tb/uut/V" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">V[11:0]</obj_property>
+      <obj_property name="ObjectShortName">V[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

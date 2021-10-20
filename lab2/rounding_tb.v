@@ -4,15 +4,15 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   23:45:30 10/14/2021
-// Design Name:   leading_0s_bits
-// Module Name:   /home/ise/git152a/lab2/leading_0s_bits_tb.v
+// Create Date:   22:46:17 10/19/2021
+// Design Name:   rounding
+// Module Name:   /home/ise/git152a/lab2/rounding_tb.v
 // Project Name:  lab2
 // Target Device:  
 // Tool versions:  
 // Description: 
 //
-// Verilog Test Fixture created by ISE for module: leading_0s_bits
+// Verilog Test Fixture created by ISE for module: rounding
 //
 // Dependencies:
 // 
@@ -22,39 +22,45 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module leading_0s_bits_tb;
+module rounding_tb;
 
 	// Inputs
-	reg [11:0] D_abs;
+	reg [2:0] raw_E;
+	reg [3:0] raw_F;
+	reg rndg_bit;
 
 	// Outputs
-	wire [7:0] lz;
-	wire [2:0] raw_E;
-	wire [3:0] raw_F;
-	wire rndg_bit;
+	wire [2:0] E;
+	wire [3:0] F;
 
 	// Instantiate the Unit Under Test (UUT)
-	leading_0s_bits uut (
-		.D_abs(D_abs),  
-		.lz(lz), 
+	rounding uut (
 		.raw_E(raw_E),
-		.raw_F(raw_F),
-		.rndg_bit(rndg_bit)
+		.raw_F(raw_F), 
+		.rndg_bit(rndg_bit),
+		.E(E),
+		.F(F)
 	);
 
 	initial begin
 		// Initialize Inputs
-		D_abs = 0;
+		raw_E = 0;
+		raw_F = 0;
+		rndg_bit = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
         
 		// Add stimulus here
-		D_abs = 12'b000110100110;	//422
+		raw_E = 2;
+		raw_F = 4'b1011;
+		rndg_bit = 1; 
 		
-		#100 
+		#100;
 		
-		D_abs = 12'b000000101110;	//46
+		raw_E = 3;
+		raw_F = 4'b1111;
+		rndg_bit = 1;
 		
 		#100 $finish;
 	end
