@@ -47,7 +47,7 @@ module FPCVT_tb;
 		// Wait 100 ns for global reset to finish
 		#100;
         
-		// Add stimulus here
+		// Add stimulus here	
 		D = 12'b0001_1010_0110;		//422 --> 416
 		#100;
 		
@@ -81,7 +81,7 @@ module FPCVT_tb;
 		D = 12'b0111_1100_0000; 	//1984 --> 1920
 		#100;
 		
-		D = 12'b0000_0000_1111;		//15 --> 15
+		D = 12'b0000_0001_1111;		//15 --> 15
 		#100;
 		
 		D = 12'b1111_1111_1111;		//-1 --> -1
