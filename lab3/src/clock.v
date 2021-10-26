@@ -18,8 +18,8 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module clock(input clk, 					//100 MHz
-				 input RESET, 
+module clock(input RESET,
+				 input clk, 					//100 MHz
 				 output reg clk_2hz, 		//2 Hz
 				 output reg clk_1hz, 		//1 Hz
 				 output reg fast_clk, 		//100 Hz

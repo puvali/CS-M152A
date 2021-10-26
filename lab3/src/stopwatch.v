@@ -24,6 +24,15 @@ module stopwatch(input clk,
 					  input RESET, 
 					  input PAUSE);
 
+//divided clocks
+wire clk_2hz;
+wire clk_1hz;
+wire fast_clk;
+wire blink_clk;
+
+//instantiate clock module
+clock clk_ins(RESET, clk, clk_2hz, clk_1hz, fast_clk, blink_clk);
+
 reg [5:0] seconds;
 reg [5:0] minutes;
 
@@ -38,7 +47,7 @@ always @(posedge clk, posedge RESET) begin
 		seconds <= 0;
 		minutes <= 0;
 	end else 
-		seconds = seconds + 1;
+		seconds <= seconds + 1;
 end
 
 endmodule
