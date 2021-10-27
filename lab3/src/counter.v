@@ -81,6 +81,7 @@ always @(posedge state_clk, posedge RESET) begin
 				seconds <= seconds + 1;
 			end
 		end 
+		
 	endcase
 end 
 

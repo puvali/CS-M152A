@@ -88,7 +88,7 @@ reg [1:0] digit_switch;
 
 always @ (posedge fast_clk, posedge RESET) begin
 	if (RESET)
-		digit_switch = 0;
+		digit_switch <= 0;
 
 	//Minute tens' place
 	else if (digit_switch == 0) begin
