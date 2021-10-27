@@ -53,11 +53,17 @@ module stopwatch_tb;
         
 		// Add stimulus here
 		RESET = 1;
-		#10;
-		RESET = 0;
+		#100 RESET = 0;
 		
 		//100 MHz testbench clock
 		repeat(1000) #5 clk = ~clk;
+		ADJ = 1;
+		repeat(1000) #5 clk = ~clk;
+		SEL = 1;
+		repeat(1000) #5 clk = ~clk;
+		ADJ = 0;
+		repeat(1000) #5 clk = ~clk;
+		
 
 	end
       

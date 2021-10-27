@@ -27,24 +27,25 @@ module clock(input RESET,
 
 
 //2 Hz clock
-reg [25:0] ctr2;
-parameter dv2 = 26'd25_000_000;
+reg [25:0] ctr2 = 0;
+//parameter dv2 = 26'd25_000_000;
+parameter dv2 = 26'd25;
 
 
 //1 Hz clock
-reg [25:0] ctr1;
+reg [25:0] ctr1 = 0;
 //parameter dv1 = 26'd50_000_000;
-parameter dv1 = 26'd20;
+parameter dv1 = 26'd50;
 
 
 //Fast clock
-reg [25:0] ctrf;
+reg [25:0] ctrf = 0;
 //parameter dvf = 26'd500_000;
 parameter dvf = 26'd2;
 
 
 //Blinking clock
-reg [25:0] ctrb;
+reg [25:0] ctrb = 0;
 parameter dvb = 26'd40_000_000;
 
 

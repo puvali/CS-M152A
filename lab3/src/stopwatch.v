@@ -26,38 +26,45 @@ module stopwatch(input clk,
 					  output reg [3:0] anode, 
 					  output reg [6:0] cathode);
 
+
 //divided clocks
 wire clk_2hz;
 wire clk_1hz;
 wire fast_clk;				//to switch display digits 
-wire blink_clk;
+wire blink_clk;			//blink while on adjustment mode
 
 //instantiate clock module
 clock clk_ins(RESET, clk, clk_2hz, clk_1hz, fast_clk, blink_clk);
 
-reg [5:0] minutes;
-reg [5:0] seconds;
+
+
+//3 states: basic clock, adjusting minutes and adjusting seconds
+parameter basic = 4'd0;
+parameter adj_min = 4'd1;
+parameter adj_sec = 4'd2;
+reg [2:0] state = basic;
+
+always @ (posedge ADJ, SEL) begin
+	if (~SEL)
+		state = adj_min;
+	else if (SEL)
+		state = adj_sec;
+end
+
+always @ (negedge ADJ) state = basic;
+
+
+
+wire [5:0] minutes;
+wire [5:0] seconds;
 
 wire [3:0] min_tens;	
 wire [3:0] min_ones;	
 wire [3:0] sec_tens;	
 wire [3:0] sec_ones;	
 
-//normal stopwatch counter  
-always @ (posedge clk_1hz, posedge RESET) begin	
-	if (RESET) begin
-		seconds <= 0;
-		minutes <= 0;
-	end else if (seconds == 59) begin
-		seconds <= 0;
-		minutes <= minutes + 1;
-	end else if (minutes == 59) begin
-		seconds <= 0;
-		minutes <= 0;
-	end else begin
-		seconds <= seconds + 1;
-	end
-end 	
+//instantiate counter module
+counter ctr(RESET, state, clk_1hz, clk_2hz, minutes, seconds);	
 	
 assign min_tens = minutes/10;
 assign min_ones = minutes - (min_tens * 10);
@@ -66,7 +73,7 @@ assign sec_ones = seconds - (sec_tens * 10);
 
 
 
-//cathode circuit nodes CA CB CC CD CE CF CG for each segment
+//cathodes for AN3, AN2, AN1 and AN0
 wire [6:0] cathode3;
 wire [6:0] cathode2;
 wire [6:0] cathode1;
@@ -77,11 +84,14 @@ segments m1(.digit(min_ones), .cathode(cathode2));
 segments s10(.digit(sec_tens), .cathode(cathode1));
 segments s1(.digit(sec_ones), .cathode(cathode0));
 
-reg [1:0] digit_switch = 0;
+reg [1:0] digit_switch;
 
-always @ (posedge fast_clk) begin
+always @ (posedge fast_clk, posedge RESET) begin
+	if (RESET)
+		digit_switch = 0;
+
 	//Minute tens' place
-	if (digit_switch == 0) begin
+	else if (digit_switch == 0) begin
 		anode <= 4'b0111;
 		cathode <= cathode3;
 		digit_switch <= digit_switch + 1;

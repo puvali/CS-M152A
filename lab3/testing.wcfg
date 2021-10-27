@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="13" />
+   <WVObjectSize size="12" />
    <wvobject fp_name="/stopwatch_tb/uut/RESET" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">RESET</obj_property>
       <obj_property name="ObjectShortName">RESET</obj_property>
@@ -22,6 +22,10 @@
    <wvobject fp_name="/stopwatch_tb/uut/clk_1hz" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk_1hz</obj_property>
       <obj_property name="ObjectShortName">clk_1hz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/clk_2hz" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_2hz</obj_property>
+      <obj_property name="ObjectShortName">clk_2hz</obj_property>
    </wvobject>
    <wvobject fp_name="/stopwatch_tb/uut/fast_clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">fast_clk</obj_property>
@@ -37,29 +41,9 @@
       <obj_property name="ObjectShortName">minutes[5:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/stopwatch_tb/uut/min_tens" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">min_tens[3:0]</obj_property>
-      <obj_property name="ObjectShortName">min_tens[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stopwatch_tb/uut/min_ones" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">min_ones[3:0]</obj_property>
-      <obj_property name="ObjectShortName">min_ones[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/stopwatch_tb/uut/seconds" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">seconds[5:0]</obj_property>
       <obj_property name="ObjectShortName">seconds[5:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stopwatch_tb/uut/sec_tens" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">sec_tens[3:0]</obj_property>
-      <obj_property name="ObjectShortName">sec_tens[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stopwatch_tb/uut/sec_ones" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">sec_ones[3:0]</obj_property>
-      <obj_property name="ObjectShortName">sec_ones[3:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/stopwatch_tb/uut/anode" type="array" db_ref_id="1">
@@ -69,5 +53,13 @@
    <wvobject fp_name="/stopwatch_tb/uut/cathode" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">cathode[6:0]</obj_property>
       <obj_property name="ObjectShortName">cathode[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/ADJ" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ADJ</obj_property>
+      <obj_property name="ObjectShortName">ADJ</obj_property>
    </wvobject>
 </wave_config>
