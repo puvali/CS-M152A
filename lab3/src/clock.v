@@ -25,17 +25,29 @@ module clock(input RESET,
 				 output reg fast_clk, 		//100 Hz
 				 output reg blink_clk);		//1.25 Hz
 
+
+//2 Hz clock
 reg [25:0] ctr2;
 parameter dv2 = 26'd25_000_000;
 
+
+//1 Hz clock
 reg [25:0] ctr1;
-parameter dv1 = 26'd50_000_000;
+//parameter dv1 = 26'd50_000_000;
+parameter dv1 = 26'd20;
 
+
+//Fast clock
 reg [25:0] ctrf;
-parameter dvf = 26'd500_000;
+//parameter dvf = 26'd500_000;
+parameter dvf = 26'd2;
 
+
+//Blinking clock
 reg [25:0] ctrb;
 parameter dvb = 26'd40_000_000;
+
+
 
 //100 MHz -> 2 Hz
 always @(posedge clk, posedge RESET) begin

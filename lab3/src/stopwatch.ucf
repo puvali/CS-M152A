@@ -1,0 +1,34 @@
+#100 MHz internal clock
+NET "clk" LOC = V10;
+
+#Switches SW0 and SW1
+NET "SEL" LOC = T10;
+NET "ADJ" LOC = T9;
+
+#Push buttons BTNS (center) and BTND (bottom)
+NET "RESET" LOC = B8;
+NET "PAUSE" LOC = C9;
+
+#Minute: Tens' place
+NET "anode[3]" LOC = P17;
+#Minute: Ones' place
+NET "anode[2]" LOC = P18;
+#Second: Tens' place
+NET "anode[1]" LOC = N15;
+#Second: Ones' place
+NET "anode[0]" LOC = N16;
+
+#CA: top
+NET "cathode[6]" LOC = T17;
+#CB: top right
+NET "cathode[5]" LOC = T18;
+#CC: bottom right
+NET "cathode[4]" LOC = U17;
+#CD: bottom
+NET "cathode[3]" LOC = U18;
+#CE: bottom left
+NET "cathode[2]" LOC = M14;
+#CF: top left
+NET "cathode[1]" LOC = N14;
+#CG: center
+NET "cathode[0]" LOC = L14;

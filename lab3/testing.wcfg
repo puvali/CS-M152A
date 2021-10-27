@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/ise/git152a/lab3/stopwatch_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="stopwatch_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/stopwatch_tb/uut/RESET" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/clk_1hz" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_1hz</obj_property>
+      <obj_property name="ObjectShortName">clk_1hz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/fast_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fast_clk</obj_property>
+      <obj_property name="ObjectShortName">fast_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/digit_switch" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">digit_switch[1:0]</obj_property>
+      <obj_property name="ObjectShortName">digit_switch[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/minutes" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">minutes[5:0]</obj_property>
+      <obj_property name="ObjectShortName">minutes[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/min_tens" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">min_tens[3:0]</obj_property>
+      <obj_property name="ObjectShortName">min_tens[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/min_ones" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">min_ones[3:0]</obj_property>
+      <obj_property name="ObjectShortName">min_ones[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/seconds" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">seconds[5:0]</obj_property>
+      <obj_property name="ObjectShortName">seconds[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/sec_tens" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sec_tens[3:0]</obj_property>
+      <obj_property name="ObjectShortName">sec_tens[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/sec_ones" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sec_ones[3:0]</obj_property>
+      <obj_property name="ObjectShortName">sec_ones[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/anode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode[3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stopwatch_tb/uut/cathode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cathode[6:0]</obj_property>
+      <obj_property name="ObjectShortName">cathode[6:0]</obj_property>
+   </wvobject>
+</wave_config>
