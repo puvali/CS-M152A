@@ -57,13 +57,23 @@ parameter adj_sec = 4'd2;
 
 reg [2:0] state;
 
+//0 for no blink, 1 for blink min, 2 for blink sec
+reg [2:0] blinking;
+
 always @(*) begin
-	if (ADJ & ~SEL)
+	if (ADJ & ~SEL) begin
 		state = adj_min;
-	else if (ADJ & SEL)
+		blinking = 1;
+	end
+	else if (ADJ & SEL) begin
 		state = adj_sec;
-	else if (~ADJ) 
+		blinking = 2;
+	end
+	else if (~ADJ) begin
 		state = basic;
+		blinking = 0;
+	end
+		
 end
 
 
@@ -115,30 +125,50 @@ always @ (posedge fast_clk, posedge RESET) begin
 	if (RESET)
 		digit_switch <= 0;
 
+
 	//Minute tens' place
 	else if (digit_switch == 0) begin
 		anode <= 4'b0111;
 		cathode <= cathode3;
+		
+		if (blinking == 1 && blink_clk)
+			anode <= 4'b1111;
+		
 		digit_switch <= digit_switch + 1;
+	
 	
 	//Minute ones' place
 	end else if (digit_switch == 1) begin
 		anode <= 4'b1011;
 		cathode <= cathode2;
+		
+		if (blinking == 1 && blink_clk)
+			anode <= 4'b1111;		
+		
 		digit_switch <= digit_switch + 1;
+	
 	
 	//Second tens' place
 	end else if (digit_switch == 2) begin
 		anode <= 4'b1101;
 		cathode <= cathode1;
+		
+		if (blinking == 2 && blink_clk)
+			anode <= 4'b1111;
+			
 		digit_switch <= digit_switch + 1;
+	
 	
 	//Second ones' place
 	end else if (digit_switch == 3) begin
 		anode <= 4'b1110;
 		cathode <= cathode0;
+
+		if (blinking == 2 && blink_clk)
+			anode <= 4'b1111;
+			
 		digit_switch <= 0;
 	end
 end 
-
+		
 endmodule
