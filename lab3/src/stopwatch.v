@@ -59,16 +59,17 @@ clock clk_ins(RESET, clk, clk_2hz, clk_1hz, fast_clk, blink_clk);
 parameter basic = 4'd0;
 parameter adj_min = 4'd1;
 parameter adj_sec = 4'd2;
-reg [2:0] state;
 
-always @(*) begin
+reg [2:0] state = basic;
+
+/*always @(*) begin
 	if (ADJ & ~SEL)
 		state = adj_min;
 	else if (ADJ & SEL)
 		state = adj_sec;
-	else 
+	else if (~ADJ) 
 		state = basic;
-end
+end*/
 
 
 

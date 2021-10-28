@@ -31,8 +31,25 @@ parameter adj_sec = 4'd2;
 
 //pick 1 Hz clock for basic counter and 2 Hz clock for adjustment mode
 
-reg state_clk;					
+reg state_clk;
+always @(*) state_clk = clk_2hz;	
 
+always @ (posedge state_clk, posedge RESET) begin
+	if (RESET) begin
+		seconds <= 0;
+		minutes <= 0;
+	end else if (seconds == 59) begin
+		seconds <= 0;
+		minutes <= minutes + 1;
+	end else if (minutes == 59) begin
+		seconds <= 0;
+		minutes <= 0;
+	end else begin
+		seconds <= seconds + 1;
+	end	
+end	
+
+/*
 always @* begin
 	case (state)
 		basic: state_clk = clk_1hz;
@@ -86,5 +103,6 @@ always @(posedge state_clk, posedge RESET) begin
 		
 	endcase
 end 
+*/
 
 endmodule
