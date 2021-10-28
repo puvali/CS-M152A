@@ -26,6 +26,18 @@ module stopwatch(input clk,
 					  output reg [3:0] anode, 
 					  output reg [6:0] cathode);
 
+//debouncer
+wire rst_db;
+wire pause_db;
+wire sel_db;
+wire adj_db;
+
+//instantiate debouncer module
+//module module_instance_name
+debouncer pause_debouncer(.clk(clk), .button(PAUSE), .bounce_type(pause_db));
+debouncer rst_debouncer (.clk(clk), .button(RST), .bounce_type(rst_db));
+debouncer sel_debouncer(.clk(clk), .button(SEL), .bounce_type(sel_db));
+debouncer adj_debouncer(.clk(clk), .button(ADJ), .bounce_type(adj_db));
 
 //divided clocks
 wire clk_2hz;
