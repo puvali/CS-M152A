@@ -30,7 +30,9 @@ parameter adj_min = 4'd1;
 parameter adj_sec = 4'd2;
 
 //pick 1 Hz clock for basic counter and 2 Hz clock for adjustment mode
+
 reg state_clk;					
+
 always @* begin
 	case (state)
 		basic: state_clk = clk_1hz;

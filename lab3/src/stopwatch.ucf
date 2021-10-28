@@ -18,17 +18,10 @@ NET "anode[1]" LOC = N15;
 #Second: Ones' place
 NET "anode[0]" LOC = N16;
 
-#CA: top
-NET "cathode[6]" LOC = T17;
-#CB: top right
-NET "cathode[5]" LOC = T18;
-#CC: bottom right
-NET "cathode[4]" LOC = U17;
-#CD: bottom
-NET "cathode[3]" LOC = U18;
-#CE: bottom left
-NET "cathode[2]" LOC = M14;
-#CF: top left
-NET "cathode[1]" LOC = N14;
-#CG: center
-NET "cathode[0]" LOC = L14;
+NET "cathode[6]" LOC = T17;			#CA: top
+NET "cathode[5]" LOC = T18;			#CB: top right
+NET "cathode[4]" LOC = U17;			#CC: bottom right
+NET "cathode[3]" LOC = U18;			#CD: bottom
+NET "cathode[2]" LOC = M14;			#CE: bottom left
+NET "cathode[1]" LOC = N14;			#CF: top left
+NET "cathode[0]" LOC = L14;			#CG: center

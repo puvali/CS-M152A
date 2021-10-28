@@ -22,7 +22,7 @@
 module debouncer(
 	input clk, 
 	input button, //input to be debounced
-	output bounce_state //debounced switch/button
+	output reg bounce_state //debounced switch/button
 	);
 	
 	//addresses metastability
@@ -48,7 +48,7 @@ module debouncer(
 	//debouncing
 	always @ (posedge clk) begin
 		//state has already been registered
-		if(sync_reg1 == button_state)
+		if(sync_reg1 == bounce_state)
 			counter <= 0;
 		//button has to hold its value for a certain amount of time before it's accepted
 		else begin

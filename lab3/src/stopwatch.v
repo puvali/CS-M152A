@@ -26,6 +26,7 @@ module stopwatch(input clk,
 					  output reg [3:0] anode, 
 					  output reg [6:0] cathode);
 
+/*
 //debouncer
 wire rst_db;
 wire pause_db;
@@ -34,10 +35,14 @@ wire adj_db;
 
 //instantiate debouncer module
 //module module_instance_name
-debouncer pause_debouncer(.clk(clk), .button(PAUSE), .bounce_type(pause_db));
-debouncer rst_debouncer (.clk(clk), .button(RST), .bounce_type(rst_db));
-debouncer sel_debouncer(.clk(clk), .button(SEL), .bounce_type(sel_db));
-debouncer adj_debouncer(.clk(clk), .button(ADJ), .bounce_type(adj_db));
+debouncer pause_debouncer(.clk(clk), .button(PAUSE), .bounce_state(pause_db));
+debouncer rst_debouncer (.clk(clk), .button(RST), .bounce_state(rst_db));
+
+//debouncer sel_debouncer(.clk(clk), .button(SEL), .bounce_type(sel_db));
+//debouncer adj_debouncer(.clk(clk), .button(ADJ), .bounce_type(adj_db));
+*/
+
+
 
 //divided clocks
 wire clk_2hz;
@@ -54,16 +59,16 @@ clock clk_ins(RESET, clk, clk_2hz, clk_1hz, fast_clk, blink_clk);
 parameter basic = 4'd0;
 parameter adj_min = 4'd1;
 parameter adj_sec = 4'd2;
-reg [2:0] state = basic;
+reg [2:0] state;
 
-always @ (posedge ADJ, SEL) begin
-	if (~SEL)
+always @(*) begin
+	if (ADJ & ~SEL)
 		state = adj_min;
-	else if (SEL)
+	else if (ADJ & SEL)
 		state = adj_sec;
+	else 
+		state = basic;
 end
-
-always @ (negedge ADJ) state = basic;
 
 
 
