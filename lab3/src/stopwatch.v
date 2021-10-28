@@ -26,21 +26,16 @@ module stopwatch(input clk,
 					  output reg [3:0] anode, 
 					  output reg [6:0] cathode);
 
-/*
+
+
 //debouncer
 wire rst_db;
 wire pause_db;
-wire sel_db;
-wire adj_db;
 
 //instantiate debouncer module
 //module module_instance_name
 debouncer pause_debouncer(.clk(clk), .button(PAUSE), .bounce_state(pause_db));
 debouncer rst_debouncer (.clk(clk), .button(RST), .bounce_state(rst_db));
-
-//debouncer sel_debouncer(.clk(clk), .button(SEL), .bounce_type(sel_db));
-//debouncer adj_debouncer(.clk(clk), .button(ADJ), .bounce_type(adj_db));
-*/
 
 
 
@@ -60,19 +55,31 @@ parameter basic = 4'd0;
 parameter adj_min = 4'd1;
 parameter adj_sec = 4'd2;
 
-reg [2:0] state = basic;
+reg [2:0] state;
 
-/*always @(*) begin
+always @(*) begin
 	if (ADJ & ~SEL)
 		state = adj_min;
 	else if (ADJ & SEL)
 		state = adj_sec;
 	else if (~ADJ) 
 		state = basic;
-end*/
+end
 
 
 
+//pause 
+reg ispaused;
+always @(posedge PAUSE) begin
+	if (RESET) 
+		ispaused <= 0;
+	else 
+		ispaused <= ~ispaused;
+end
+
+
+
+//minutes and seconds
 wire [5:0] minutes;
 wire [5:0] seconds;
 
@@ -82,7 +89,7 @@ wire [3:0] sec_tens;
 wire [3:0] sec_ones;	
 
 //instantiate counter module
-counter ctr(RESET, state, clk_1hz, clk_2hz, minutes, seconds);	
+counter ctr(RESET, ispaused, state, clk_1hz, clk_2hz, minutes, seconds);	
 	
 assign min_tens = minutes/10;
 assign min_ones = minutes - (min_tens * 10);

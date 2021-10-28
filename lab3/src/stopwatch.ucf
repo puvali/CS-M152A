@@ -6,7 +6,7 @@ NET "SEL" LOC = T10;
 NET "ADJ" LOC = T9;
 
 #Push buttons BTNS (center) and BTND (bottom)
-NET "RESET" LOC = T5;
+NET "RESET" LOC = B8;
 NET "PAUSE" LOC = C9;
 
 #Minute: Tens' place

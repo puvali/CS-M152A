@@ -19,6 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module counter(input RESET,
+					input ispaused,
 					input [2:0] state,
 					input clk_1hz,
 					input clk_2hz,
@@ -32,77 +33,57 @@ parameter adj_sec = 4'd2;
 //pick 1 Hz clock for basic counter and 2 Hz clock for adjustment mode
 
 reg state_clk;
-always @(*) state_clk = clk_2hz;	
 
-always @ (posedge state_clk, posedge RESET) begin
-	if (RESET) begin
-		seconds <= 0;
-		minutes <= 0;
-	end else if (seconds == 59) begin
-		seconds <= 0;
-		minutes <= minutes + 1;
-	end else if (minutes == 59) begin
-		seconds <= 0;
-		minutes <= 0;
-	end else begin
-		seconds <= seconds + 1;
-	end	
-end	
-
-/*
-always @* begin
-	case (state)
-		basic: state_clk = clk_1hz;
-		adj_min: state_clk = clk_2hz;
-		adj_sec: state_clk = clk_2hz;
-	endcase
+always @(*) begin
+	if (state == adj_min || state == adj_sec)
+		state_clk <= clk_2hz;
+	else 
+		state_clk <= clk_1hz;
 end
 
 always @(posedge state_clk, posedge RESET) begin
-	case (state) 
-		
-		//count seconds and minutes at 1 Hz
-		basic: begin
-			if (RESET) begin
-				seconds <= 0;
-				minutes <= 0;
-			end else if (seconds == 59) begin
-				seconds <= 0;
-				minutes <= minutes + 1;
-			end else if (minutes == 59) begin
-				seconds <= 0;
-				minutes <= 0;
-			end else begin
-				seconds <= seconds + 1;
-			end
+	if (RESET) begin
+		seconds <= 0;
+		minutes <= 0;
+	end
+	
+	else if (ispaused) begin
+		seconds <= seconds;
+		minutes <= minutes;
+	end
+	
+	//basic: count mins and secs normally at 1 Hz
+	else if(state == basic) begin
+		if (seconds == 59) begin
+			seconds <= 0;
+			minutes <= minutes + 1;
+		end 
+		if (minutes == 59 && seconds == 59) begin
+			seconds <= 0;
+			minutes <= 0;
+		end else begin
+			seconds <= seconds + 1;
 		end
-		
-		//freeze seconds and increment minutes at 2 Hz
-		adj_min: begin
-			if (RESET) begin
-				seconds <= 0;
-				minutes <= 0;
-			end else if (minutes == 59) begin
-				minutes <= 0;
-			end else begin
-				minutes <= minutes + 1;
-			end 
-		end 
-		
-		//freeze minutes and increment seconds at 2 Hz
-		adj_sec: begin
-			if (RESET) begin
-				seconds <= 0;
-				minutes <= 0;
-			end else if (seconds == 59) begin
-				seconds <= 0;
-			end else begin
-				seconds <= seconds + 1;
-			end
-		end 
-		
-	endcase
-end 
-*/
+	end 
+	
+	//adj_min: freeze secs and count mins at 2 Hz
+	else if(state == adj_min) begin
+		if (minutes == 59) begin
+			minutes <= 0;
+		end else begin
+			minutes <= minutes + 1;
+		end
+	end 
+	
+	//adj_sec: freeze mins and count secs at 2 Hz
+	else if(state == adj_sec) begin
+		if (seconds == 59) begin
+			seconds <= 0;
+		end else begin
+			seconds <= seconds + 1;
+		end
+	end		
+	
+end
 
 endmodule
