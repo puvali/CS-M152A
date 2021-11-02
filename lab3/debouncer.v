@@ -21,8 +21,9 @@
 
 module debouncer(
 	input clk, 
+	input fast_clk,
 	input button, //input to be debounced
-	output reg bounce_state //debounced switch/button
+	output bounce_state //debounced switch/button
 	);
 	
 	//addresses metastability
@@ -32,30 +33,23 @@ module debouncer(
 	//signal to resolve to a known value before the signal is used
 	
 	//also synchronizes the switch input to the clock
-	reg sync_reg0;
-	reg sync_reg1;
+	wire Q0, Q1, Q2;
 	
-	reg [15:0] counter;
+	dff d0(fast_clk, button, Q0);
+	dff d1(fast_clk, Q0, Q1);
+	dff d2(fast_clk, Q1, Q2);
 	
-	always @ (posedge clk) begin
-		sync_reg0 <= button;
-	end
-	
-	always @ (posedge clk) begin
-		sync_reg1 <= sync_reg0;
-	end
-	
-	//debouncing
-	always @ (posedge clk) begin
-		//state has already been registered
-		if(sync_reg1 == bounce_state)
-			counter <= 0;
-		//button has to hold its value for a certain amount of time before it's accepted
-		else begin
-			counter <= counter + 1'b1;
-			if(counter == 16'hffff)
-				bounce_state <= ~bounce_state;
-		end
-	end
+	assign bounce_state = Q1 & ~Q2;
 	
 endmodule
+
+
+
+module dff(input fast_clk,
+			  input D,
+			  output reg Q);
+always @ (posedge fast_clk) begin 
+	Q <= D;
+end
+endmodule
+

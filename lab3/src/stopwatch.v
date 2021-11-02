@@ -28,17 +28,6 @@ module stopwatch(input clk,
 
 
 
-//debouncer
-wire rst_db;
-wire pause_db;
-
-//instantiate debouncer module
-//module module_instance_name
-debouncer pause_debouncer(.clk(clk), .button(PAUSE), .bounce_state(pause_db));
-debouncer rst_debouncer (.clk(clk), .button(RST), .bounce_state(rst_db));
-
-
-
 //divided clocks
 wire clk_2hz;
 wire clk_1hz;
@@ -47,6 +36,16 @@ wire blink_clk;			//blink while on adjustment mode
 
 //instantiate clock module
 clock clk_ins(RESET, clk, clk_2hz, clk_1hz, fast_clk, blink_clk);
+
+
+
+//debouncer
+wire rst_db;
+wire pause_db;
+
+//instantiate debouncer module
+debouncer pause_debouncer(.clk(clk), .fast_clk(fast_clk), .button(PAUSE), .bounce_state(pause_db));
+debouncer rst_debouncer (.clk(clk), .fast_clk(fast_clk), .button(RESET), .bounce_state(rst_db));
 
 
 
@@ -80,8 +79,8 @@ end
 
 //pause 
 reg ispaused;
-always @(posedge PAUSE) begin
-	if (RESET) 
+always @(posedge pause_db) begin
+	if (pause_db)
 		ispaused <= 0;
 	else 
 		ispaused <= ~ispaused;
@@ -98,8 +97,8 @@ wire [3:0] min_ones;
 wire [3:0] sec_tens;	
 wire [3:0] sec_ones;	
 
-//instantiate counter module
-counter ctr(RESET, ispaused, state, clk_1hz, clk_2hz, minutes, seconds);	
+//instantiate counter module	
+counter ctr(RESET, ispaused, state, clk_1hz, clk_2hz, minutes, seconds);
 	
 assign min_tens = minutes/10;
 assign min_ones = minutes - (min_tens * 10);
