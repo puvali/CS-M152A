@@ -43,10 +43,10 @@ clock clk_ins(RESET, clk, clk_2hz, clk_1hz, fast_clk, blink_clk);
 wire rst_db;
 wire pause_db;
 
+
 //instantiate debouncer module
 debouncer pause_debouncer(.clk(clk), .fast_clk(fast_clk), .button(PAUSE), .bounce_state(pause_db));
 debouncer rst_debouncer (.clk(clk), .fast_clk(fast_clk), .button(RESET), .bounce_state(rst_db));
-
 
 
 //3 states: basic clock, adjusting minutes and adjusting seconds

@@ -43,44 +43,43 @@ end
 
 always @(posedge state_clk, posedge RESET) begin
 	if (RESET) begin
-		seconds <= 0;
-		minutes <= 0;
+		seconds = 0;
+		minutes = 0;
 	end
 	
 	else if (ispaused) begin
-		seconds <= seconds;
-		minutes <= minutes;
+		seconds = seconds;
+		minutes = minutes;
 	end
 	
 	//basic: count mins and secs normally at 1 Hz
-	else if(state == basic) begin
-		if (seconds == 59) begin
-			seconds <= 0;
-			minutes <= minutes + 1;
-		end 
+	else if(state == basic) begin 
 		if (minutes == 59 && seconds == 59) begin
-			seconds <= 0;
-			minutes <= 0;
+			seconds = 0;
+			minutes = 0;
+		end else if (seconds == 59) begin
+			seconds = 0;
+			minutes = minutes + 1;
 		end else begin
-			seconds <= seconds + 1;
+			seconds = seconds + 1;
 		end
 	end 
 	
 	//adj_min: freeze secs and count mins at 2 Hz
 	else if(state == adj_min) begin
 		if (minutes == 59) begin
-			minutes <= 0;
+			minutes = 0;
 		end else begin
-			minutes <= minutes + 1;
+			minutes = minutes + 1;
 		end
 	end 
 	
 	//adj_sec: freeze mins and count secs at 2 Hz
 	else if(state == adj_sec) begin
 		if (seconds == 59) begin
-			seconds <= 0;
+			seconds = 0;
 		end else begin
-			seconds <= seconds + 1;
+			seconds = seconds + 1;
 		end
 	end		
 	

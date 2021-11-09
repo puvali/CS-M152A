@@ -56,13 +56,15 @@ module stopwatch_tb;
 		#500 RESET = 0;
 		
 		//100 MHz testbench clock
-		repeat(1000) #5 clk = ~clk;
+		repeat(10000) #5 clk = ~clk;
 		ADJ = 1;
-		repeat(1000) #5 clk = ~clk;
+		repeat(10000) #5 clk = ~clk;
 		SEL = 1;
-		repeat(1000) #5 clk = ~clk;
+		repeat(10000) #5 clk = ~clk;
+		SEL = 0;
+		repeat(1700) #5 clk = ~clk;
 		ADJ = 0;
-		repeat(1000) #5 clk = ~clk;
+		repeat(50000) #5 clk = ~clk;
 		$finish;
 	
 	end

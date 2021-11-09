@@ -26,13 +26,6 @@ module debouncer(
 	output bounce_state //debounced switch/button
 	);
 	
-	//addresses metastability
-	//use 2 registers instead one to reduce the chance that button violate
-	//setup and hold time
-	//using 2 registers gives additional time for a potentially metstable
-	//signal to resolve to a known value before the signal is used
-	
-	//also synchronizes the switch input to the clock
 	wire Q0, Q1, Q2;
 	
 	dff d0(fast_clk, button, Q0);

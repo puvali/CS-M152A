@@ -29,13 +29,13 @@ module clock(input RESET,
 //2 Hz clock
 reg [25:0] ctr2 = 0;
 parameter dv2 = 26'd25_000_000;
-//parameter dv2 = 27'd25;
+//parameter dv2 = 27'd25;		//2 MHz
 
 
 //1 Hz clock
 reg [25:0] ctr1 = 0;
 parameter dv1 = 26'd50_000_000;
-//parameter dv1 = 27'd50;
+//parameter dv1 = 27'd50;		//1 MHz
 
 
 //Fast clock
