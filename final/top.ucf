@@ -14,3 +14,4 @@ NET "cathode[1]" LOC = N14;
 NET "cathode[0]" LOC = L14;
 NET "clk" LOC = V10;
 NET "RESET" LOC = T10;
+NET "speaker" LOC = M10;

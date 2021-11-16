@@ -28,14 +28,14 @@ module top(
 	output reg [6:0] cathode
 );
 
-wire clk500;
-clock clkdv(RESET, clk, clk500);
+wire clk500, clk25m;
+clock clkdv(RESET, clk, clk500, clk25m);
 
 reg [30:0] tone;
 always @(posedge clk) tone <= tone+31'd1;
 
 wire [7:0] fullnote;
-music_ROM get_fullnote(.clk(clk), .address(tone[29:22]), .note(fullnote));
+music_ROM get_fullnote(.clk25m(clk25m), .address(tone[29:22]), .note(fullnote));
 
 wire [2:0] octave;
 wire [3:0] note;
@@ -62,7 +62,7 @@ endcase
 reg [8:0] counter_note;
 reg [7:0] counter_octave;
 
-always @(posedge clk) begin
+always @(posedge clk25m) begin
 	if (counter_note == 0)
 		counter_note <= clkdivider;
 	else 
@@ -70,7 +70,7 @@ always @(posedge clk) begin
 end
 	//counter_note <= counter_note==0 ? clkdivider : counter_note-9'd1;
 
-always @(posedge clk) begin
+always @(posedge clk25m) begin
 	if (counter_note == 0) begin
 		if(counter_octave == 0)
 			counter_octave <= 8'd255 >> octave;
@@ -80,7 +80,7 @@ always @(posedge clk) begin
 end
 		//counter_octave <= counter_octave==0 ? 8'd255 >> octave : counter_octave-8'd1;
 
-always @(posedge clk) 
+always @(posedge clk25m) 
 	if (counter_note == 0 && counter_octave == 0 && fullnote != 0 && tone[21:18] != 0) 
 		speaker <= ~speaker;
 	
@@ -192,12 +192,12 @@ endmodule
 
 
 module music_ROM(
-	input clk,
+	input clk25m,
 	input [7:0] address,
 	output reg [7:0] note
 );
 
-always @(posedge clk)
+always @(posedge clk25m)
 case(address)
 	  0: note<= 8'd25;
 	  1: note<= 8'd27;
@@ -452,23 +452,41 @@ endmodule
 
 module clock(input RESET, 
 				 input clk,
-				 output reg clk500);
+				 output reg clk500,
+				 output reg clk25m);
 
-reg [25:0] ctr = 0;
-parameter dv = 26'd100_000;
+reg [25:0] ctr500 = 0;
+parameter dv500 = 26'd100_000;
 //parameter dvf = 27'd2;
+
+reg [3:0] ctr25m = 0;
+parameter dv25m = 4'd2;
 
 //100 Mhz -> 500 Hz
 always @(posedge clk, posedge RESET) begin
 	if (RESET) begin
-		ctr <= 0;
+		ctr500 <= 0;
 		clk500 <= 0;
-	end else if (ctr == dv - 1) begin
-		ctr <= 0;
+	end else if (ctr500 == dv500 - 1) begin
+		ctr500 <= 0;
 		clk500 <= ~clk500;
 	end else begin
-		ctr <= ctr + 1;
+		ctr500 <= ctr500 + 1;
 		clk500 <= clk500;
+	end 
+end
+
+//100 Mhz -> 25 MHz
+always @(posedge clk, posedge RESET) begin
+	if (RESET) begin
+		ctr25m <= 0;
+		clk25m <= 0;
+	end else if (ctr25m == dv25m - 1) begin
+		ctr25m <= 0;
+		clk25m <= ~clk25m;
+	end else begin
+		ctr25m <= ctr25m + 1;
+		clk25m <= clk25m;
 	end 
 end
 endmodule
