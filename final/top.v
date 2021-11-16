@@ -62,16 +62,27 @@ endcase
 reg [8:0] counter_note;
 reg [7:0] counter_octave;
 
-always @(posedge clk) 
-	counter_note <= counter_note==0 ? clkdivider : counter_note-9'd1;
+always @(posedge clk) begin
+	if (counter_note == 0)
+		counter_note <= clkdivider;
+	else 
+		counter_note <= counter_note - 9'd1;
+end
+	//counter_note <= counter_note==0 ? clkdivider : counter_note-9'd1;
+
+always @(posedge clk) begin
+	if (counter_note == 0) begin
+		if(counter_octave == 0)
+			counter_octave <= 8'd255 >> octave;
+		else 
+			counter_octave <= counter_octave - 8'd1;
+	end
+end
+		//counter_octave <= counter_octave==0 ? 8'd255 >> octave : counter_octave-8'd1;
 
 always @(posedge clk) 
-	if(counter_note==0) 
-		counter_octave <= counter_octave==0 ? 8'd255 >> octave : counter_octave-8'd1;
-
-always @(posedge clk) 
-	if(counter_note==0 && counter_octave==0 && fullnote!=0 && tone[21:18]!=0) 
-	speaker <= ~speaker;
+	if (counter_note == 0 && counter_octave == 0 && fullnote != 0 && tone[21:18] != 0) 
+		speaker <= ~speaker;
 	
 //cathodes for AN3 and AN2
 reg [6:0] cathode3;
