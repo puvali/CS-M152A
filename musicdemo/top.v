@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    23:49:51 11/09/2021 
+// Create Date:    22:03:31 11/23/2021 
 // Design Name: 
-// Module Name:    notes 
+// Module Name:    top 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,15 +18,8 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-parameter A = 0; 
-parameter Bb = 1; 
-parameter B = 2; 
-parameter C = 3; 
-parameter Db = 4; 
-parameter D = 5; 
-parameter Eb = 6; 
-parameter E = 7;
-parameter F = 8; 
-parameter Gb = 9; 
-parameter G = 10; 
-parameter Ab = 11;
+module top(
+    );
+
+
+endmodule
