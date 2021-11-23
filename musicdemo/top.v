@@ -38,8 +38,9 @@ always @(posedge CLK100MHZ) tone <= tone+1;
 
 wire [7:0] swnote;
 wire [7:0] rudolphnote;
-sw_ROM swROM(.clk(CLK100MHZ), .address(tone[29:23]), .note(swnote));
-rudolph_ROM rudolphROM(.clk(CLK100MHZ), .address(tone[31:24]), .note(rudolphnote));
+//tone[31...] was too slow, tone[30...] too fast so adding notes
+sw_ROM swROM(.clk(CLK100MHZ), .address(tone[30:23]), .note(swnote));
+rudolph_ROM rudolphROM(.clk(CLK100MHZ), .address(tone[31:25]), .note(rudolphnote));
 
 reg [7:0] fullnote;
 always @(posedge CLK100MHZ)

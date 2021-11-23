@@ -23,11 +23,11 @@ NET "GAIN_SEL" LOC = V12;
 NET "ALS" LOC = P11;
 
 # Play/pause pushbutton
-NET "pp" LOC = B8;
+NET "play_pause" LOC = B8;
 
 # Reset and song select switches
 NET "RESET" LOC = T10;
-NET "ss" LOC = T9;
+NET "song_sel" LOC = T9;
 
 # LEDs
 NET "ld7" LOC = T11;

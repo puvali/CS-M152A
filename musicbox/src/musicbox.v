@@ -20,8 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 module musicbox(input clk,				 
 					 input RESET, 					//Reset
-					 input pp,						//Play/pause switch
-					 input ss,						//Select song
+					 input play_pause,			//Play/pause switch
+					 input song_sel,				//Select song
 					 output AUDIO_IP, 			//AMP2 Pin 1: Audio Input
 					 output GAIN_SEL, 			//AMP2 Pin 2: Gain Selection
 					 output reg ALS,				//AMP2 Pin 4: Active Low Shutdown	
@@ -47,7 +47,7 @@ clock clk_ins(RESET, clk, clk_1hz, ssg_clk);
 
 //debounce play/pause pushbutton input
 wire pp_db;
-debouncer db_ins(.clk(clk), .fast_clk(ssg_clk), .button(pp), .bounce_state(pp_db));
+debouncer db_ins(.clk(clk), .fast_clk(ssg_clk), .button(play_pause), .bounce_state(pp_db));
 
 
 reg [11:0] dv;				//divisor for clock divider logic
@@ -65,18 +65,22 @@ wire [7:0] fullnote1;
 wire [7:0] fullnote2;
 
 
-ROM1 rom1(.clk(clk), .address(tone[32:27]), .note(fullnote1));
-ROM2 rom2(.clk(clk), .address(tone[32:27]), .note(fullnote2));
+ROM1 rom1(.clk(clk), .address(tone[29:23]), .note(fullnote1));
+ROM2 rom2(.clk(clk), .address(tone[31:24]), .note(fullnote2));
+
 
 
 reg ispaused;
 always @(posedge pp_db) begin
+	//if paused --> play
 	if (ispaused) begin
 		ispaused = 0;
-		ALS = 0;		//turn on amp
+		ALS = 1;		//turn on amp
+	
+	//if playing --> pause
 	end else begin
 		ispaused = 1;
-		ALS = 1;		//turn off amp	
+		ALS = 0;		//turn off amp	
 	end
 end
 
@@ -91,7 +95,7 @@ wire [5:0] mins2;
 wire [5:0] secs2;
 
 //instantiate song time counter
-counter ctr_ins(RESET, ss, ispaused, clk_1hz, mins1, secs1, mins2, secs2);
+counter ctr_ins(RESET, song_sel, ispaused, clk_1hz, mins1, secs1, mins2, secs2);
 
 //how long the song has been playing
 reg [5:0] minutes;
@@ -102,9 +106,9 @@ wire [3:0] min_ones;
 wire [3:0] sec_tens;
 wire [3:0] sec_ones;
 
-always @(ss) begin
+always @(song_sel) begin
 	//song 1
-	if (~ss) begin
+	if (~song_sel) begin
 		fullnote = fullnote1;
 		minutes = mins1;
 		seconds = secs1;
@@ -318,7 +322,8 @@ always @(posedge clk) begin
 end
 
 assign AUDIO_IP = speaker;
-assign GAIN_SEL = 0;				//12 dB gain for low, 6 dB gain for high 
+assign GAIN_SEL = 1;				//12 dB gain for low, 6 dB gain for high 
+
 
 
 //cathodes for AN3, AN2, AN1 and AN0
@@ -368,13 +373,13 @@ endmodule
 //fullnote -> numerator; quotient -> octave, remainder -> note
 module divideby12(input [5:0] numerator,
 						output reg [2:0] quotient,
-						output reg [3:0] remainder);
+						output [3:0] remainder);
 						
 //remainder[3] and remainder[2]
 reg [1:0] r3r2; 
 //remainder[3:2] gets r3r2 and remainder[1:0] gets numerator[1:0]
 //division by 4: copying lowest 2 bits of numerator into remainder
-assign remain = {r3r2, numerator[1:0]};
+assign remainder = {r3r2, numerator[1:0]};
 
 //division by 3: lookup table to get octave (q) and 2 highest bits of remainder (r3r2)
 always @(numerator[5:2]) begin

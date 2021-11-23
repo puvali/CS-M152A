@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module counter(input RESET,
-					input ss, 						//switch songs
+					input song_sel, 						//switch songs
 					input ispaused,
 					input clk_1hz,
 					output reg [5:0] mins1,
@@ -36,19 +36,19 @@ always @(posedge clk_1hz, posedge RESET) begin
 	end 
 	
 	//paused on song 1
-	else if (ispaused && ~ss) begin
+	else if (ispaused && ~song_sel) begin
 		mins1 = mins1;
 		secs1 = secs1;
 	end 
 	
 	//paused on song 2
-	else if (ispaused && ss) begin
+	else if (ispaused && song_sel) begin
 		mins2 = mins2;
 		secs2 = secs2;
 	end 
 	
 	//playing song 1
-	else if (~ss) begin
+	else if (~song_sel) begin
 		mins2 = 0;
 		secs2 = 0;
 		if (mins1 == 59 && secs1 == 59) begin
@@ -104,7 +104,5 @@ always @(posedge clk_1hz, posedge RESET) begin
 	end 		
 end
 */
-
-
 
 endmodule
