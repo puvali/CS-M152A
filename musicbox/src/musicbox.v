@@ -60,12 +60,12 @@ always @(posedge clk)
 	tone = tone + 1;
 
 
-reg [7:0] fullnote;
-wire [7:0] fullnote1;
-wire [7:0] fullnote2;
+reg [9:0] fullnote;
+wire [9:0] fullnote1;
+wire [9:0] fullnote2;
 
 
-ROM1 rom1(.clk(clk), .address(tone[29:23]), .note(fullnote1));
+ROM1 rom1(.clk(clk), .address(tone[31:23]), .note(fullnote1));
 ROM2 rom2(.clk(clk), .address(tone[31:24]), .note(fullnote2));
 
 

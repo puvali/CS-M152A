@@ -18,9 +18,9 @@ NET "cathode[0]" LOC = L14;
 NET "clk" LOC = V10;
 
 # PMOD AMP Pins 1, 2 and 4
-NET "AUDIO_IP" LOC = T12;
-NET "GAIN_SEL" LOC = V12;
-NET "ALS" LOC = P11;
+NET "AUDIO_IP" LOC = M10;
+NET "GAIN_SEL" LOC = N9;
+NET "ALS" LOC = V11;
 
 # Play/pause pushbutton
 NET "play_pause" LOC = B8;
