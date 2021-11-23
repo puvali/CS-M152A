@@ -1,0 +1,62 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Tue Nov 23 22:08:59 2021
+# Process ID: 3167
+# Log file: /home/ise/git152a/musicdemo/planAhead_run_1/planAhead.log
+# Journal file: /home/ise/git152a/musicdemo/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/ise/git152a/musicdemo/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin P11 [get_ports {jd[3]}]
+endgroup
+startgroup
+set_property package_pin V12 [get_ports {jd[1]}]
+endgroup
+startgroup
+set_property package_pin T12 [get_ports {jd[0]}]
+endgroup
+startgroup
+set_property package_pin M8 [get_ports {led[3]}]
+endgroup
+startgroup
+set_property package_pin V9 [get_ports {led[2]}]
+endgroup
+startgroup
+set_property package_pin T9 [get_ports {led[1]}]
+endgroup
+startgroup
+set_property package_pin T10 [get_ports {led[0]}]
+endgroup
+startgroup
+set_property package_pin V15 [get_ports {led[3]}]
+endgroup
+startgroup
+set_property package_pin U15 [get_ports {led[2]}]
+endgroup
+startgroup
+set_property package_pin V16 [get_ports {led[1]}]
+endgroup
+startgroup
+set_property package_pin U16 [get_ports {led[0]}]
+endgroup
+startgroup
+set_property package_pin M8 [get_ports {sw[3]}]
+endgroup
+startgroup
+set_property package_pin V9 [get_ports {sw[2]}]
+endgroup
+startgroup
+set_property package_pin T9 [get_ports {sw[1]}]
+endgroup
+startgroup
+set_property package_pin T10 [get_ports {sw[0]}]
+endgroup
+startgroup
+set_property package_pin V10 [get_ports CLK100MHZ]
+endgroup
+set_property is_loc_fixed false [get_ports [list  CLK100MHZ]]
+set_property is_loc_fixed true [get_ports [list  CLK100MHZ]]
+save_constraints
