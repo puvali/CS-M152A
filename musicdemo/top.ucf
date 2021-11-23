@@ -1,0 +1,14 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "jd[3]" LOC = P11;
+NET "jd[1]" LOC = V12;
+NET "jd[0]" LOC = T12;
+NET "led[3]" LOC = V15;
+NET "led[1]" LOC = V16;
+NET "led[0]" LOC = U16;
+NET "sw[3]" LOC = M8;
+NET "sw[2]" LOC = V9;
+NET "sw[1]" LOC = T9;
+NET "sw[0]" LOC = T10;
+NET "CLK100MHZ" LOC = V10;

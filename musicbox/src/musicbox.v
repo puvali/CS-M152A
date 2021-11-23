@@ -61,12 +61,12 @@ always @(posedge clk)
 
 
 reg [7:0] fullnote;
-wire [7:0] note1;
-wire [7:0] note2;
+wire [7:0] fullnote1;
+wire [7:0] fullnote2;
 
 
-rom1 rom1(.clk(clk), .bits(tone[32:27]), .fullnote(note1));
-rom2 rom2(.clk(clk), .bits(tone[32:27]), .fullnote(note2));
+ROM1 rom1(.clk(clk), .address(tone[32:27]), .note(fullnote1));
+ROM2 rom2(.clk(clk), .address(tone[32:27]), .note(fullnote2));
 
 
 reg ispaused;
@@ -81,31 +81,46 @@ always @(posedge pp_db) begin
 end
 
 
+
+//song 1 minutes and seconds 
+wire [5:0] mins1;
+wire [5:0] secs1;
+
+//song 2 minutes and seconds 
+wire [5:0] mins2;
+wire [5:0] secs2;
+
+//instantiate song time counter
+counter ctr_ins(RESET, ss, ispaused, clk_1hz, mins1, secs1, mins2, secs2);
+
 //how long the song has been playing
-wire [5:0] minutes;
-wire [5:0] seconds;
+reg [5:0] minutes;
+reg [5:0] seconds;
 
 wire [3:0] min_tens; 
 wire [3:0] min_ones;
 wire [3:0] sec_tens;
 wire [3:0] sec_ones;
 
+always @(ss) begin
+	//song 1
+	if (~ss) begin
+		fullnote = fullnote1;
+		minutes = mins1;
+		seconds = secs1;
+	//song2
+	end else begin
+		fullnote = fullnote2;
+		minutes = mins2;
+		seconds = secs2;
+	end
+end
+
 assign min_tens = minutes / 10;
 assign min_ones = minutes - (min_tens * 10);
 assign sec_tens = seconds / 10;
 assign sec_ones = seconds - (sec_tens * 10);
- 
-//instantiate song time counter
-counter ctr_ins(RESET, ss, ispaused, clk_1hz, minutes, seconds);
 
-
-//switch songs
-always @(posedge ss, negedge ss) begin
-	if (ss)
-		fullnote = note1;
-	else
-		fullnote = note2;
-end
 
 
 wire [2:0] octave;
