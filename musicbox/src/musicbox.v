@@ -45,10 +45,11 @@ wire clk_1hz, ssg_clk;
 clock clk_ins(RESET, clk, clk_1hz, ssg_clk); 
 
 
+/*
 //debounce play/pause pushbutton input
 wire pp_db;
 debouncer db_ins(.clk(clk), .fast_clk(ssg_clk), .button(play_pause), .bounce_state(pp_db));
-
+*/
 
 reg [11:0] dv;				//divisor for clock divider logic
 reg [11:0] note_ctr;		//clock divider counter for notes
@@ -71,7 +72,7 @@ ROM2 rom2(.clk(clk), .address(tone[31:24]), .note(fullnote2));
 
 
 reg ispaused;
-always @(posedge pp_db) begin
+always @(posedge play_pause) begin
 	//if paused --> play
 	if (ispaused) begin
 		ispaused = 0;
