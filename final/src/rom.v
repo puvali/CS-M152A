@@ -793,7 +793,7 @@ case(address)
     250:note <= 42;
     251:note <= 42;
     //rest to imitate articulation
-    252:note <= 0;
+    252:note <= 0
     //G 42
     253:note <= 42;
     254:note <= 42;
@@ -825,7 +825,7 @@ case(address)
     275:note <= 39;
     276:note <= 39;
     //sixteenth note rest to imitate articulation
-    277:note <= 0;
+    277:note <= 0
     //E 39
     278:note <= 39;
     279:note <= 39;
@@ -834,7 +834,7 @@ case(address)
     282:note <= 39;
     283:note <= 39;
     //sixteenth note rest to imitate articulation
-    284:note <= 0;
+    284:note <= 0
     //E 39
     285:note <= 39;
     286:note <= 39;
@@ -880,106 +880,105 @@ case(address)
     318:note <= 42;
     319:note <= 42;
     //sixteenth note rest to imitate articulation
-    320:note <= 0;
+    320:note <= 0
     //G 42    
-    320:note <= 42;
     321:note <= 42;
-    322:note <= 42;
     323:note <= 42;
-    324:note <= 42;    
+    324:note <= 42;
     325:note <= 42;
+    326:note <= 42;    
+    327:note <= 42;
     //F# 41
-    326:note <= 41;
-    327:note <= 41;
+    328:note <= 41;
+    329:note <= 41;
     //A 44
-    328:note <= 44;
-    329:note <= 44;    
     330:note <= 44;
-    331:note <= 44;
+    331:note <= 44;    
     332:note <= 44;
     333:note <= 44;
     334:note <= 44;
     335:note <= 44;
+    336:note <= 44;
+    337:note <= 44;
     //quarter note rest    
-    336:note <= 40;
-    337:note <= 40;
     338:note <= 40;
     339:note <= 40;
+    340:note <= 40;
+    341:note <= 40;
     //D 37
-    340:note <= 37;
-    341:note <= 37;
+    342:note <= 37;
+    343:note <= 37;
     //E 39
-    342:note <= 39;
-    343:note <= 39;
+    344:note <= 39;
+    345:note <= 39;
     //F# 41
-    344:note <= 41;
-    345:note <= 41;
     346:note <= 41;
     347:note <= 41;
     348:note <= 41;
     349:note <= 41;
+    350:note <= 41;
+    351:note <= 41;
     //G 42
-    350:note <= 42;
-    351:note <= 42;
+    352:note <= 42;
+    353:note <= 42;
     //F# 41
-    352:note <= 41;
-    353:note <= 41;
     354:note <= 41;
     355:note <= 41;
     356:note <= 41;
     357:note <= 41;
+    358:note <= 41;
+    359:note <= 41;
     //E 39
-    358:note <= 39;
-    359:note <= 39;
+    360:note <= 39;
+    361:note <= 39;
     //D 37
-    360:note <= 37;
-    361:note <= 37;
     362:note <= 37;
     363:note <= 37;
     364:note <= 37;
     365:note <= 37;
     366:note <= 37;
     367:note <= 37;
+    367:note <= 37;
+    368:note <= 37;
     //quarter note rest
-    368:note <= 0;
-    369:note <= 0; 
+    369:note <= 0;
     370:note <= 0; 
-    371:note <= 0;
+    371:note <= 0; 
+    372:note <= 0;
     //B 46
-    372:note <= 46;
     373:note <= 46;
+    374:note <= 46;
     //C# 48
-    374:note <= 48;
     375:note <= 48;
+    376:note <= 48;
     //D 49
-    376:note <= 49;
     377:note <= 49;
     378:note <= 49;
     379:note <= 49;
     380:note <= 49;
     381:note <= 49;
+    382:note <= 49;
     //G 42
-    382:note <= 42;
     383:note <= 42;
+    384:note <= 42;
     //sixteenth note rest to imitate articulation
-    384:note <= 0;
+    385:note <= 0;
     //G
-    385:note <= 42;
     386:note <= 42;
     387:note <= 42;
     388:note <= 42;
+    389:note <= 42;
     //F# 41
-    389:note <= 41;
     390:note <= 41;
     391:note <= 41;
     392:note <= 41;
+    393:note <= 41;
     //A 44
-    393:note <= 44;
     394:note <= 44;
     395:note <= 44;
     396:note <= 44;
+    397:note <= 44;
     //D 37
-    397:note <= 37;
     398:note <= 37;
     399:note <= 37;
     400:note <= 37;
@@ -987,20 +986,21 @@ case(address)
     402:note <= 37;
     403:note <= 37;
     404:note <= 37;
+    405:note <= 37;
     //quarter noter est
-    405:note <= 0;
     406:note <= 0;
     407:note <= 0;
     408:note <= 0;
+    409:note <= 0;
     //D 37
-    409:note <= 37; 
-    410:note <= 37;
-    411:note <= 39;
+    410:note <= 37; 
+    411:note <= 37;
     412:note <= 39;
-    413:note <= 0;
+    413:note <= 39;
     414:note <= 0;
     415:note <= 0;
     416:note <= 0;
+    417:note <= 0;
     default: note <= 0;
 endcase
 endmodule
