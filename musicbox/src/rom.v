@@ -26,36 +26,43 @@ module ROM1(
 
 always @(posedge clk)
 case(address)
+    //B
     0:note <= 34;
     1:note <= 34;
     2:note <= 34;
     3:note <= 34;
+    //E
     4:note <= 39;
     5:note <= 39;
     6:note <= 39;
     7:note <= 39;
     8:note <= 39;
     9:note <= 39;
-    10:note <= 41; 
-    11:note <= 41;
+    //G
+    10:note <= 42;
+    11:note <= 42;
+    //F#
     12:note <= 41;
     13:note <= 41;
-    14:note <= 41; 
+    14:note <= 41;
     15:note <= 41;
-    16:note <= 41;
-    17:note <= 41;
+    //E
+    16:note <= 39;
+    17:note <= 39;
     18:note <= 39;
     19:note <= 39;
     20:note <= 39;
     21:note <= 39;
     22:note <= 39;
     23:note <= 39;
-    24:note <= 39;
-    25:note <= 39;
+    //B
+    24:note <= 46;
+    25:note <= 46;
     26:note <= 46;
     27:note <= 46;
-    28:note <= 46;
-    29:note <= 46;
+    //A
+    28:note <= 44;
+    29:note <= 44;
     30:note <= 44;
     31:note <= 44;
     32:note <= 44;
@@ -66,8 +73,9 @@ case(address)
     37:note <= 44;
     38:note <= 44;
     39:note <= 44;
-    40:note <= 44;
-    41:note <= 44;
+    //F#
+    40:note <= 41;
+    41:note <= 41;
     42:note <= 41;
     43:note <= 41;
     44:note <= 41;
@@ -78,235 +86,278 @@ case(address)
     49:note <= 41;
     50:note <= 41;
     51:note <= 41;
-    52:note <= 41;
-    53:note <= 41;
+    //E
+    52:note <= 39;
+    53:note <= 39;
     54:note <= 39;
     55:note <= 39;
     56:note <= 39;
     57:note <= 39;
-    58:note <= 39;
-    59:note <= 39;
-    60:note <= 42;
-    61:note <= 42;
+    //G
+    58:note <= 42;
+    59:note <= 42;
+    //F#
+    60:note <= 41;
+    61:note <= 41;
     62:note <= 41;
     63:note <= 41;
-    64:note <= 41;
-    65:note <= 41;
-    66:note <= 41;
-    67:note <= 41;
-    68:note <= 41;
-    69:note <= 41;
+    //Eb
+    64:note <= 38;
+    65:note <= 38;
+    66:note <= 38;
+    67:note <= 38;
+    68:note <= 38;
+    69:note <= 38;
     70:note <= 38;
     71:note <= 38;
-    72:note <= 38;
-    73:note <= 38;
-    74:note <= 38;
-    75:note <= 38;
-    76:note <= 38;
-    77:note <= 38;
-    78:note <= 40;
-    79:note <= 40;
-    80:note <= 40;
-    81:note <= 40;
+    //F
+    72:note <= 40;
+    73:note <= 40;
+    74:note <= 40;
+    75:note <= 40;
+    //B
+    76:note <= 34;
+    77:note <= 34;
+    78:note <= 34;
+    79:note <= 34;
+    80:note <= 34;
+    81:note <= 34;
     82:note <= 34;
     83:note <= 34;
     84:note <= 34;
     85:note <= 34;
     86:note <= 34;
     87:note <= 34;
-    88:note <= 34;
-    89:note <= 34;
+    //START OF PHRASE 2
+    88:note <= 0;
+    89:note <= 0;
+    //B
     90:note <= 34;
     91:note <= 34;
     92:note <= 34;
     93:note <= 34;
-    94:note <= 34;
-    95:note <= 34;
-    96:note <= 34;
-    97:note <= 34;
-    98:note <= 34;
-    99:note <= 34;
-    100:note <= 34;
-    101:note <= 34;
-    102:note <= 0;
-    103:note <= 0;
-    104:note <= 34;
-    105:note <= 34;
-    106:note <= 34;
-    107:note <= 34;
+    //E
+    94:note <= 39;
+    95:note <= 39;
+    96:note <= 39;
+    97:note <= 39;
+    98:note <= 39;
+    99:note <= 39;
+    //G
+    100:note <= 42;
+    101:note <= 42;
+    //F#
+    102:note <= 41;
+    103:note <= 41;
+    104:note <= 41;
+    105:note <= 41;
+    //E
+    106:note <= 39;
+    107:note <= 39;
     108:note <= 39;
     109:note <= 39;
     110:note <= 39;
     111:note <= 39;
     112:note <= 39;
     113:note <= 39;
-    114:note <= 42;
-    115:note <= 42;
-    116:note <= 41;
-    117:note <= 41;
-    118:note <= 41;
-    119:note <= 41;
-    120:note <= 41;
-    121:note <= 41;
-    122:note <= 41;
-    123:note <= 41;
-    124:note <= 39;
-    125:note <= 39;
-    126:note <= 39;
-    127:note <= 39;
-    128:note <= 39;
-    129:note <= 39;
-    130:note <= 39;
-    131:note <= 39;
-    132:note <= 46;
-    133:note <= 46;
-    134:note <= 46;
-    135:note <= 46;
-    136:note <= 49;
-    137:note <= 49;
-    138:note <= 49;
-    139:note <= 49;
-    140:note <= 49;
-    141:note <= 49;
-    142:note <= 49;
-    143:note <= 49;
-    144:note <= 48;
-    145:note <= 48;
-    146:note <= 48;
-    147:note <= 48;
+    //B
+    114:note <= 46;
+    115:note <= 46;
+    116:note <= 46;
+    117:note <= 46;
+    //D
+    118:note <= 49;
+    119:note <= 49;
+    120:note <= 49;
+    121:note <= 49;
+    122:note <= 49;
+    123:note <= 49;
+    124:note <= 49;
+    125:note <= 49;
+    //Db
+    126:note <= 48;
+    127:note <= 48;
+    128:note <= 48;
+    129:note <= 48;
+    //C
+    131:note <= 47;
+    132:note <= 47;
+    133:note <= 47;
+    134:note <= 47;
+    135:note <= 47;
+    136:note <= 47;
+    137:note <= 47;
+    138:note <= 47;
+    //Ab
+    139:note <= 43;
+    140:note <= 43;
+    141:note <= 43;
+    142:note <= 43;
+    //C
+    143:note <= 47;
+    144:note <= 47;
+    145:note <= 47;
+    146:note <= 47;
+    147:note <= 47;
     148:note <= 47;
-    149:note <= 47;
-    150:note <= 47;
-    151:note <= 47;
-    152:note <= 47;
-    153:note <= 47;
-    154:note <= 47;
-    155:note <= 47;
-    156:note <= 43;
-    157:note <= 43;
-    158:note <= 43;
-    159:note <= 43;
-    160:note <= 47;
-    161:note <= 47;
-    162:note <= 47;
-    163:note <= 47;
-    164:note <= 47;
-    165:note <= 47;
-    166:note <= 46;
-    167:note <= 46;
-    168:note <= 45;
-    169:note <= 45;
-    170:note <= 45;
-    171:note <= 45;
-    172:note <= 33;
-    173:note <= 33;
-    174:note <= 33;
-    175:note <= 33;
-    176:note <= 33;
-    177:note <= 33;
-    178:note <= 33;
-    179:note <= 33;
-    180:note <= 42;
-    181:note <= 42;
-    182:note <= 42;
-    183:note <= 42;
-    184:note <= 39;
-    185:note <= 39;
-    186:note <= 39;
-    187:note <= 39;
-    188:note <= 39;
-    189:note <= 39;
-    190:note <= 39;
-    191:note <= 39;
-    192:note <= 39;
-    193:note <= 39;
-    194:note <= 39;
-    195:note <= 39;
-    196:note <= 39;
-    197:note <= 39;
-    198:note <= 39;
-    199:note <= 39;
-    200:note <= 39;
-    201:note <= 39;
-    202:note <= 39;
-    203:note <= 39;
-    204:note <= 42;
-    205:note <= 42;
-    206:note <= 42;
-    207:note <= 42;
-    208:note <= 46;
-    209:note <= 46;
-    210:note <= 46;
-    211:note <= 46;    
+    //B
+    149:note <= 46;
+    150:note <= 46;
+    //Bb
+    151:note <= 45;
+    152:note <= 45;
+    153:note <= 45;
+    154:note <= 45;
+    //Bb
+    155:note <= 34;
+    156:note <= 34;
+    157:note <= 34;
+    158:note <= 34;
+    159:note <= 34;
+    160:note <= 34;
+    161:note <= 34;
+    162:note <= 34;
+    //G
+    163:note <= 42;
+    164:note <= 42;
+    165:note <= 42;
+    166:note <= 42;
+    //E
+    167:note <= 39;
+    168:note <= 39;
+    169:note <= 39;
+    170:note <= 39;
+    171:note <= 39;
+    172:note <= 39;
+    173:note <= 39;
+    174:note <= 39;
+    //START OF PHRASE 3
+    //G
+    175:note <= 42;
+    176:note <= 42;
+    177:note <= 42;
+    178:note <= 42;
+    //B
+    179:note <= 46;
+    180:note <= 46;
+    181:note <= 46;
+    182:note <= 46;
+    183:note <= 46;
+    184:note <= 46;
+    185:note <= 46;
+    186:note <= 46;
+    //G
+    187:note <= 42;
+    188:note <= 42;
+    189:note <= 42;
+    190:note <= 42;
+    //B
+    191:note <= 46;
+    192:note <= 46;
+    193:note <= 46;
+    194:note <= 46;
+    195:note <= 46;
+    196:note <= 46;
+    197:note <= 46;
+    198:note <= 46;
+    //G
+    199:note <= 42;
+    200:note <= 42;
+    201:note <= 42;
+    202:note <= 42;
+    //C
+    203:note <= 47;
+    204:note <= 47;
+    205:note <= 47;
+    206:note <= 47;
+    207:note <= 47;
+    208:note <= 47;
+    209:note <= 47;
+    210:note <= 47;
+    //B
+    211:note <= 46;
     212:note <= 46;
     213:note <= 46;
     214:note <= 46;
-    215:note <= 46;
-    216:note <= 42;
-    217:note <= 42;    
-    218:note <= 42;
-    219:note <= 42;
-    220:note <= 46;
-    221:note <= 46;
-    222:note <= 46;
-    223:note <= 46;    
-    224:note <= 46;
-    225:note <= 46;
-    226:note <= 46;
-    227:note <= 46;
+    //Bb
+    215:note <= 45;
+    216:note <= 45;
+    217:note <= 45;
+    218:note <= 45;
+    219:note <= 45;
+    220:note <= 45;
+    221:note <= 45;
+    222:note <= 45;
+    //Gb
+    223:note <= 41;
+    224:note <= 41;
+    225:note <= 41;
+    226:note <= 41;
+    //G
+    227:note <= 42;
     228:note <= 42;
     229:note <= 42;
     230:note <= 42;
     231:note <= 42;
-    232:note <= 47;
-    233:note <= 47;
-    234:note <= 47;
-    235:note <= 47;
-    236:note <= 47;
-    237:note <= 47;
-    238:note <= 47;
-    239:note <= 47;
-    240:note <= 46;
-    241:note <= 46;
-    242:note <= 46;
-    243:note <= 46;
-    244:note <= 45;
-    245:note <= 45;
-    246:note <= 45;
-    247:note <= 45;    
-    248:note <= 45;
-    249:note <= 45;
-    250:note <= 45;
-    251:note <= 45;
-    252:note <= 41;
-    253:note <= 41;    
-    254:note <= 41;
-    255:note <= 41;
-    256:note <= 42;
-    257:note <= 42;
-    258:note <= 42;
-    259:note <= 42;
+    232:note <= 42;
+    //B
+    233:note <= 46;
+    234:note <= 46;
+    //Bb
+    235:note <= 45;
+    236:note <= 45;
+    //Bb
+    237:note <= 33;
+    238:note <= 33;
+    239:note <= 33;
+    240:note <= 33;
+    //B
+    241:note <= 34;
+    242:note <= 34;
+    243:note <= 34;
+    244:note <= 34;
+    //B
+    245:note <= 46;
+    246:note <= 46;
+    247:note <= 46;
+    248:note <= 46;
+    249:note <= 46;
+    250:note <= 46;
+    251:note <= 46;
+    252:note <= 46;
+    253:note <= 46;
+    254:note <= 46;
+    255:note <= 46;
+    256:note <= 46;
+    257:note <= 46;
+    258:note <= 46;
+    259:note <= 46;
     260:note <= 46;
     261:note <= 46;
-    262:note <= 45;
-    263:note <= 45;    
-    264:note <= 45;
-    265:note <= 45;
-    266:note <= 33;
-    267:note <= 33;
-    268:note <= 33;
-    269:note <= 33;    
-    270:note <= 33;
-    271:note <= 33;
-    272:note <= 33;
-    273:note <= 33;
-    274:note <= 34;
-    275:note <= 34;
-    276:note <= 34;
-    277:note <= 34;
-    278:note <= 46;
-    279:note <= 46;
-    280:note <= 46;
+    262:note <= 46;
+    263:note <= 46;
+    264:note <= 46;
+    //START OF PHRASE 4
+    //G
+    265:note <= 42;
+    266:note <= 42;
+    267:note <= 42;
+    268:note <= 42;
+    //B
+    269:note <= 46;
+    270:note <= 46;
+    271:note <= 46;
+    272:note <= 46;
+    273:note <= 46;
+    274:note <= 46;
+    275:note <= 46;
+    276:note <= 46;
+    //G
+    277:note <= 42;
+    278:note <= 42;
+    279:note <= 42;
+    280:note <= 42;
+    //B
     281:note <= 46;
     282:note <= 46;
     283:note <= 46;
@@ -315,117 +366,93 @@ case(address)
     286:note <= 46;
     287:note <= 46;
     288:note <= 46;
-    289:note <= 46;
-    290:note <= 46;
-    291:note <= 46;
-    292:note <= 46;
-    293:note <= 46;
-    294:note <= 46;
-    295:note <= 46;
-    296:note <= 46;
-    297:note <= 46;
-    298:note <= 42;
-    299:note <= 42;
-    300:note <= 42;
-    301:note <= 42;
-    302:note <= 46;
-    303:note <= 46;
-    304:note <= 46;
-    305:note <= 46;    
-    306:note <= 46;
-    307:note <= 46;
-    308:note <= 46;
-    309:note <= 46;
-    310:note <= 42;
-    311:note <= 42;    
-    312:note <= 42;
-    313:note <= 42;
-    314:note <= 46;
-    315:note <= 46;
-    316:note <= 46;    
-    317:note <= 46;
-    318:note <= 46;
-    319:note <= 46;
-    320:note <= 42;
-    321:note <= 42;    
-    322:note <= 42;
-    323:note <= 42;
-    324:note <= 49;
-    325:note <= 49;
-    326:note <= 49;
-    327:note <= 49;    
-    328:note <= 49;
-    329:note <= 49;
-    330:note <= 49;
-    331:note <= 49;
-    332:note <= 48;
-    333:note <= 48;
-    334:note <= 48;
-    335:note <= 48;
-    336:note <= 47;
-    337:note <= 47;
-    338:note <= 47;
-    339:note <= 47;
-    340:note <= 47;
-    341:note <= 47;
-    342:note <= 47;
-    343:note <= 47;
-    344:note <= 43;
-    345:note <= 43;
-    346:note <= 43;
-    347:note <= 43;
-    348:note <= 47;
-    349:note <= 47;
-    350:note <= 47;
-    351:note <= 47;
-    352:note <= 47;
-    353:note <= 47;
-    354:note <= 46;
-    355:note <= 46;
-    356:note <= 45;
-    357:note <= 45;
-    358:note <= 45;
-    359:note <= 45;
-    360:note <= 33; 
-    361:note <= 33; 
-    362:note <= 33; 
-    363:note <= 33;
-    364:note <= 33; 
-    365:note <= 33; 
-    366:note <= 33; 
-    367:note <= 33;  
-    368:note <= 42;
-    369:note <= 42;
-    370:note <= 42;
-    371:note <= 42;
-    372:note <= 39;
-    373:note <= 39;
-    374:note <= 39;
-    375:note <= 39;
-    376:note <= 39;
-    377:note <= 39;
-    378:note <= 39;
-    379:note <= 39;
-    380:note <= 39;
-    381:note <= 39;
-    382:note <= 39;
-    383:note <= 39;
-    384:note <= 39;
-    385:note <= 39;
-    386:note <= 39;
-    387:note <= 39;
-    388:note <= 39;
-    389:note <= 39;
-    390:note <= 39;
-    391:note <= 39;
-    392:note <= 0;
-    393:note <= 0;
-    394:note <= 0;
-    395:note <= 0;
-    396:note <= 0;
-    397:note <= 0;
-    398:note <= 0;
-    399:note <= 0;
+    //G
+    289:note <= 42;
+    290:note <= 42;
+    291:note <= 42;
+    292:note <= 42;
+    //D
+    293:note <= 49;
+    294:note <= 49;
+    295:note <= 49;
+    296:note <= 49;
+    297:note <= 49;
+    298:note <= 49;
+    299:note <= 49;
+    300:note <= 49; 
+    //Db
+    301:note <= 48;
+    302:note <= 48;
+    303:note <= 48;
+    304:note <= 48; 
+    //C
+    305:note <= 47;
+    306:note <= 47;
+    307:note <= 47;
+    308:note <= 47;
+    309:note <= 47;
+    310:note <= 47;
+    311:note <= 47;
+    312:note <= 47;
+    //Ab
+    313:note <= 43;
+    314:note <= 43;
+    315:note <= 43;
+    316:note <= 43;
+    //C
+    317:note <= 47;
+    318:note <= 47;
+    319:note <= 47;
+    320:note <= 47;
+    321:note <= 47;
+    322:note <= 47;
+    //B
+    323:note <= 46;
+    324:note <= 46;
+    //Bb
+    325:note <= 45;
+    326:note <= 45;
+    327:note <= 45;
+    328:note <= 45;
+    //Bb
+    329:note <= 33;
+    330:note <= 33;
+    331:note <= 33;
+    332:note <= 33;
+    333:note <= 33;
+    334:note <= 33;
+    335:note <= 33;
+    336:note <= 33;
+    //G
+    337:note <= 42;
+    338:note <= 42;
+    339:note <= 42;
+    340:note <= 42;
+    //E
+    341:note <= 39;
+    342:note <= 39;
+    343:note <= 39;
+    344:note <= 39;
+    345:note <= 39;
+    346:note <= 39;
+    347:note <= 39;
+    348:note <= 39;
+    349:note <= 39;
+    350:note <= 39;
+    351:note <= 39;
+    352:note <= 39;
+    353:note <= 39;
+    354:note <= 39;
+    355:note <= 39;
+    356:note <= 39;
+    357:note <= 39;
+    358:note <= 39;
+    359:note <= 39;
+    360:note <= 39;
+    361:note <= 39;
+    362:note <= 39;
+    363:note <= 39;
+    364:note <= 39;
 	default: note <= 8'd0;
 endcase
 endmodule
@@ -438,249 +465,531 @@ module ROM2(
 
 always @(posedge clk)
 case(address)
-	  0: note<= 8'd25;
-	  1: note<= 8'd27;
-	  2: note<= 8'd27;
-	  3: note<= 8'd25;
-	  4: note<= 8'd22;
-	  5: note<= 8'd22;
-	  6: note<= 8'd30;
-	  7: note<= 8'd30;
-	  8: note<= 8'd27;
-	  9: note<= 8'd27;
-	 10: note<= 8'd25;
-	 11: note<= 8'd25;
-	 12: note<= 8'd25;
-	 13: note<= 8'd25;
-	 14: note<= 8'd25;
-	 15: note<= 8'd25;
-	 16: note<= 8'd25;
-	 17: note<= 8'd27;
-	 18: note<= 8'd25;
-	 19: note<= 8'd27;
-	 20: note<= 8'd25;
-	 21: note<= 8'd25;
-	 22: note<= 8'd30;
-	 23: note<= 8'd30;
-	 24: note<= 8'd29;
-	 25: note<= 8'd29;
-	 26: note<= 8'd29;
-	 27: note<= 8'd29;
-	 28: note<= 8'd29;
-	 29: note<= 8'd29;
-	 30: note<= 8'd29;
-	 31: note<= 8'd29;
-	 32: note<= 8'd23;
-	 33: note<= 8'd25;
-	 34: note<= 8'd25;
-	 35: note<= 8'd23;
-	 36: note<= 8'd20;
-	 37: note<= 8'd20;
-	 38: note<= 8'd29;
-	 39: note<= 8'd29;
-	 40: note<= 8'd27;
-	 41: note<= 8'd27;
-	 42: note<= 8'd25;
-	 43: note<= 8'd25;
-	 44: note<= 8'd25;
-	 45: note<= 8'd25;
-	 46: note<= 8'd25;
-	 47: note<= 8'd25;
-	 48: note<= 8'd25;
-	 49: note<= 8'd27;
-	 50: note<= 8'd25;
-	 51: note<= 8'd27;
-	 52: note<= 8'd25;
-	 53: note<= 8'd25;
-	 54: note<= 8'd27;
-	 55: note<= 8'd27;
-	 56: note<= 8'd22;
-	 57: note<= 8'd22;
-	 58: note<= 8'd22;
-	 59: note<= 8'd22;
-	 60: note<= 8'd22;
-	 61: note<= 8'd22;
-	 62: note<= 8'd22;
-	 63: note<= 8'd22;
-	 64: note<= 8'd25;
-	 65: note<= 8'd27;
-	 66: note<= 8'd27;
-	 67: note<= 8'd25;
-	 68: note<= 8'd22;
-	 69: note<= 8'd22;
-	 70: note<= 8'd30;
-	 71: note<= 8'd30;
-	 72: note<= 8'd27;
-	 73: note<= 8'd27;
-	 74: note<= 8'd25;
-	 75: note<= 8'd25;
-	 76: note<= 8'd25;
-	 77: note<= 8'd25;
-	 78: note<= 8'd25;
-	 79: note<= 8'd25;
-	 80: note<= 8'd25;
-	 81: note<= 8'd27;
-	 82: note<= 8'd25;
-	 83: note<= 8'd27;
-	 84: note<= 8'd25;
-	 85: note<= 8'd25;
-	 86: note<= 8'd30;
-	 87: note<= 8'd30;
-	 88: note<= 8'd29;
-	 89: note<= 8'd29;
-	 90: note<= 8'd29;
-	 91: note<= 8'd29;
-	 92: note<= 8'd29;
-	 93: note<= 8'd29;
-	 94: note<= 8'd29;
-	 95: note<= 8'd29;
-	 96: note<= 8'd23;
-	 97: note<= 8'd25;
-	 98: note<= 8'd25;
-	 99: note<= 8'd23;
-	100: note<= 8'd20;
-	101: note<= 8'd20;
-	102: note<= 8'd29;
-	103: note<= 8'd29;
-	104: note<= 8'd27;
-	105: note<= 8'd27;
-	106: note<= 8'd25;
-	107: note<= 8'd25;
-	108: note<= 8'd25;
-	109: note<= 8'd25;
-	110: note<= 8'd25;
-	111: note<= 8'd25;
-	112: note<= 8'd25;
-	113: note<= 8'd27;
-	114: note<= 8'd25;
-	115: note<= 8'd27;
-	116: note<= 8'd25;
-	117: note<= 8'd25;
-	118: note<= 8'd32;
-	119: note<= 8'd32;
-	120: note<= 8'd30;
-	121: note<= 8'd30;
-	122: note<= 8'd30;
-	123: note<= 8'd30;
-	124: note<= 8'd30;
-	125: note<= 8'd30;
-	126: note<= 8'd30;
-	127: note<= 8'd30;
-	128: note<= 8'd27;
-	129: note<= 8'd27;
-	130: note<= 8'd27;
-	131: note<= 8'd27;
-	132: note<= 8'd30;
-	133: note<= 8'd30;
-	134: note<= 8'd30;
-	135: note<= 8'd27;
-	136: note<= 8'd25;
-	137: note<= 8'd25;
-	138: note<= 8'd22;
-	139: note<= 8'd22;
-	140: note<= 8'd25;
-	141: note<= 8'd25;
-	142: note<= 8'd25;
-	143: note<= 8'd25;
-	144: note<= 8'd23;
-	145: note<= 8'd23;
-	146: note<= 8'd27;
-	147: note<= 8'd27;
-	148: note<= 8'd25;
-	149: note<= 8'd25;
-	150: note<= 8'd23;
-	151: note<= 8'd23;
-	152: note<= 8'd22;
-	153: note<= 8'd22;
-	154: note<= 8'd22;
-	155: note<= 8'd22;
-	156: note<= 8'd22;
-	157: note<= 8'd22;
-	158: note<= 8'd22;
-	159: note<= 8'd22;
-	160: note<= 8'd20;
-	161: note<= 8'd20;
-	162: note<= 8'd22;
-	163: note<= 8'd22;
-	164: note<= 8'd25;
-	165: note<= 8'd25;
-	166: note<= 8'd27;
-	167: note<= 8'd27;
-	168: note<= 8'd29;
-	169: note<= 8'd29;
-	170: note<= 8'd29;
-	171: note<= 8'd29;
-	172: note<= 8'd29;
-	173: note<= 8'd29;
-	174: note<= 8'd29;
-	175: note<= 8'd29;
-	176: note<= 8'd30;
-	177: note<= 8'd30;
-	178: note<= 8'd30;
-	179: note<= 8'd30;
-	180: note<= 8'd29;
-	181: note<= 8'd29;
-	182: note<= 8'd27;
-	183: note<= 8'd27;
-	184: note<= 8'd25;
-	185: note<= 8'd25;
-	186: note<= 8'd23;
-	187: note<= 8'd20;
-	188: note<= 8'd20;
-	189: note<= 8'd20;
-	190: note<= 8'd20;
-	191: note<= 8'd20;
-	192: note<= 8'd25;
-	193: note<= 8'd27;
-	194: note<= 8'd27;
-	195: note<= 8'd25;
-	196: note<= 8'd22;
-	197: note<= 8'd22;
-	198: note<= 8'd30;
-	199: note<= 8'd30;
-	200: note<= 8'd27;
-	201: note<= 8'd27;
-	202: note<= 8'd25;
-	203: note<= 8'd25;
-	204: note<= 8'd25;
-	205: note<= 8'd25;
-	206: note<= 8'd25;
-	207: note<= 8'd25;
-	208: note<= 8'd25;
-	209: note<= 8'd27;
-	210: note<= 8'd25;
-	211: note<= 8'd27;
-	212: note<= 8'd25;
-	213: note<= 8'd25;
-	214: note<= 8'd30;
-	215: note<= 8'd30;
-	216: note<= 8'd29;
-	217: note<= 8'd29;
-	218: note<= 8'd29;
-	219: note<= 8'd29;
-	220: note<= 8'd29;
-	221: note<= 8'd29;
-	222: note<= 8'd29;
-	223: note<= 8'd29;
-	224: note<= 8'd23;
-	225: note<= 8'd25;
-	226: note<= 8'd25;
-	227: note<= 8'd23;
-	228: note<= 8'd20;
-	229: note<= 8'd20;
-	230: note<= 8'd29;
-	231: note<= 8'd29;
-	232: note<= 8'd27;
-	233: note<= 8'd27;
-	234: note<= 8'd25;
-	235: note<= 8'd25;
-	236: note<= 8'd25;
-	237: note<= 8'd25;
-	238: note<= 8'd25;
-	239: note<= 8'd25;
-	240: note<= 8'd25;
-	241: note<= 8'd0;
-	242: note<= 8'd00;
-	default: note <= 8'd0;
+	     //A 44
+    0:note <= 44
+    1:note <= 44
+    2:note <= 44
+    3:note <= 44
+    //G 42
+    4:note <= 42
+    5:note <= 42
+    6:note <= 42
+    7:note <= 42
+    //F# 41
+    8:note <= 41
+    9:note <= 41
+    10:note <= 41 
+    11:note <= 41
+    12:note <= 41
+    13:note <= 41
+    14:note <= 41 
+    15:note <= 41
+    //E 39
+    16:note <= 39
+    17:note <= 39
+    //F# 41
+    18:note <= 41
+    19:note <= 41
+    20:note <= 41
+    21:note <= 41
+    //E 39
+    22:note <= 39
+    //C# 36
+    23:note <= 36
+    //D 37
+    24:note <= 37
+    25:note <= 37
+    //A 32
+    26:note <= 32
+    27:note <= 32
+    //A 44
+    28:note <= 44
+    29:note <= 44
+    30:note <= 44
+    31:note <= 44
+    //G 42
+    32:note <= 42
+    33:note <= 42
+    34:note <= 42
+    35:note <= 42
+    //F# 41
+    36:note <= 41
+    37:note <= 41
+    38:note <= 41
+    39:note <= 41
+    40:note <= 41
+    41:note <= 41
+    42:note <= 41
+    43:note <= 41
+    //E 39
+    44:note <= 39
+    45:note <= 39
+    //F# 41
+    46:note <= 41
+    47:note <= 41
+    48:note <= 41
+    49:note <= 41
+    //E 39
+    50:note <= 39
+    //C# 36
+    51:note <= 36
+    //D 37
+    52:note <= 37
+    53:note <= 37
+    54:note <= 37
+    55:note <= 37
+    //FIRST ENDING
+    //B 46
+    56:note <= 46
+    57:note <= 46
+    58:note <= 46
+    59:note <= 46
+    //A 44
+    60:note <= 44
+    61:note <= 44
+    62:note <= 44
+    63:note <= 44
+    //G 42
+    64:note <= 42
+    65:note <= 42
+    66:note <= 42
+    67:note <= 42
+    68:note <= 42
+    69:note <= 42
+    70:note <= 42
+    71:note <= 42
+    //A 44
+    72:note <= 44
+    73:note <= 44
+    //D 49
+    74:note <= 49
+    75:note <= 49
+    //A 44
+    76:note <= 44
+    77:note <= 44
+    //D 37
+    78:note <= 37
+    79:note <= 37
+    //F# 41
+    80:note <= 41
+    81:note <= 41
+    82:note <= 41
+    83:note <= 41
+    //E 39
+    84:note <= 39
+    85:note <= 39
+    86:note <= 39
+    87:note <= 39
+    //A 44
+    88:note <= 44
+    89:note <= 44
+    90:note <= 44
+    91:note <= 44
+    //eight note rest
+    92:note <= 0
+    93:note <= 0
+    //G 42
+    94:note <= 42
+    95:note <= 42
+    //F# 41
+    96:note <= 41
+    97:note <= 41
+    98:note <= 41
+    99:note <= 41
+    //D 37
+    100:note <= 37
+    101:note <= 37
+    102:note <= 37
+    103:note <= 37
+    //E 39
+    104:note <= 39
+    105:note <= 39
+    106:note <= 39
+    107:note <= 39
+    108:note <= 39
+    109:note <= 39
+    110:note <= 39
+    111:note <= 39
+    112:note <= 39
+    113:note <= 39
+    114:note <= 39
+    115:note <= 39
+    //quarter note rest
+    116:note <= 0
+    117:note <= 0
+    118:note <= 0
+    119:note <= 0
+    //FIRST REPEAT
+    //A 44
+    120:note <= 44
+    121:note <= 44
+    122:note <= 44
+    123:note <= 44
+    //G 42
+    124:note <= 42
+    125:note <= 42
+    126:note <= 42
+    127:note <= 42
+    //F# 41
+    128:note <= 41
+    129:note <= 41
+    130:note <= 41 
+    131:note <= 41
+    132:note <= 41
+    133:note <= 41
+    134:note <= 41 
+    135:note <= 41
+    //E 39
+    136:note <= 39
+    137:note <= 39
+    //F# 41
+    138:note <= 41
+    139:note <= 41
+    140:note <= 41
+    141:note <= 41
+    //E 39
+    142:note <= 39
+    //C# 36
+    143:note <= 36
+    //D 37
+    144:note <= 37
+    145:note <= 37
+    //A 32
+    146:note <= 32
+    147:note <= 32
+    //A 44
+    148:note <= 44
+    149:note <= 44
+    150:note <= 44
+    151:note <= 44
+    //G 42
+    152:note <= 42
+    153:note <= 42
+    154:note <= 42
+    155:note <= 42
+    //F# 41
+    156:note <= 41
+    157:note <= 41
+    158:note <= 41
+    159:note <= 41
+    160:note <= 41
+    161:note <= 41
+    162:note <= 41
+    163:note <= 41
+    //E 39
+    164:note <= 39
+    165:note <= 39
+    //F# 41
+    166:note <= 41
+    167:note <= 41
+    168:note <= 41
+    169:note <= 41
+    //E 39
+    170:note <= 39
+    //C# 36
+    171:note <= 36
+    //D 37
+    172:note <= 37
+    173:note <= 37
+    174:note <= 37
+    175:note <= 37
+    //SECOND ENDING
+    //B 46
+    176:note <= 46
+    177:note <= 46
+    178:note <= 46
+    179:note <= 46
+    //A 44
+    180:note <= 44
+    181:note <= 44
+    182:note <= 44
+    183:note <= 44
+    //G
+    184:note <= 42
+    185:note <= 42
+    186:note <= 42
+    187:note <= 42
+    //eight note rest
+    188:note <= 0
+    189:note <= 0
+    //D 37
+    190:note <= 37
+    191:note <= 37
+    //C# 48
+    192:note <= 48
+    193:note <= 48
+    194:note <= 48
+    195:note <= 48
+    //B 46
+    196:note <= 46
+    197:note <= 46
+    198:note <= 46
+    199:note <= 46
+    //A 44
+    200:note <= 44
+    201:note <= 44
+    202:note <= 44
+    203:note <= 44
+    //D 37
+    204:note <= 37
+    205:note <= 37
+    //D 49
+    206:note <= 49
+    207:note <= 49
+    208:note <= 49
+    209:note <= 49
+    210:note <= 49
+    211:note <= 49
+    //C# 48
+    212:note <= 48
+    213:note <= 48
+    //B 46
+    214:note <= 46
+    215:note <= 46
+    216:note <= 46
+    217:note <= 46    
+    218:note <= 46
+    219:note <= 46
+    //F# 41
+    220:note <= 41
+    221:note <= 41
+    //A
+    222:note <= 44
+    223:note <= 44    
+    224:note <= 44
+    225:note <= 44
+    226:note <= 44
+    227:note <= 44
+    228:note <= 44
+    229:note <= 44
+    //eight note rest
+    230:note <= 0
+    231:note <= 0
+    //B 46
+    232:note <= 46
+    233:note <= 46
+    //C# 48
+    234:note <= 48
+    235:note <= 48
+    //D 49
+    236:note <= 49
+    237:note <= 49
+    238:note <= 49
+    239:note <= 49
+    //G 42
+    240:note <= 42
+    241:note <= 42
+    242:note <= 42
+    243:note <= 42
+    //rest to imitate articulation
+    244:note <= 0
+    //G 42
+    245:note <= 42
+    246:note <= 42
+    247:note <= 42    
+    248:note <= 42
+    249:note <= 42
+    250:note <= 42
+    //F# 41
+    251:note <= 41
+    252:note <= 41
+    //A 44
+    253:note <= 44    
+    254:note <= 44
+    255:note <= 44
+    256:note <= 44
+    257:note <= 44
+    258:note <= 44
+    259:note <= 44
+    260:note <= 44
+    //quarter note rest
+    261:note <= 0
+    262:note <= 0
+    263:note <= 0
+    264:note <= 0
+    //D 37
+    265:note <= 37
+    266:note <= 37
+    //E 39
+    267:note <= 39
+    268:note <= 39
+    //sixteenth note rest to imitate articulation
+    269:note <= 0
+    //E 39
+    270:note <= 39
+    271:note <= 39
+    272:note <= 39
+    273:note <= 39
+    274:note <= 39
+    275:note <= 39
+    //sixteenth note rest to imitate articulation
+    276:note <= 0
+    //E 39
+    277:note <= 39
+    278:note <= 39
+    //A 44
+    279:note <= 44
+    280:note <= 44
+    281:note <= 44
+    282:note <= 44
+    283:note <= 44
+    284:note <= 44
+    //G 42
+    285:note <= 42
+    286:note <= 42
+    //G 42
+    287:note <= 42
+    288:note <= 42
+    289:note <= 42
+    290:note <= 42
+    //F# 41
+    291:note <= 41
+    292:note <= 41
+    293:note <= 41
+    294:note <= 41
+    //quarter note rest
+    295:note <= 0
+    296:note <= 0
+    297:note <= 0
+    298:note <= 0
+    //B 46
+    299:note <= 46
+    300:note <= 46
+    //C# 48
+    301:note <= 48
+    302:note <= 48
+    //D 49
+    303:note <= 49
+    304:note <= 49
+    305:note <= 49    
+    306:note <= 49
+    //G 42
+    307:note <= 42
+    308:note <= 42
+    309:note <= 42
+    310:note <= 42
+    //sixteenth note rest to imitate articulation
+    311:note <= 0
+    //G 42    
+    312:note <= 42
+    313:note <= 42
+    314:note <= 42
+    315:note <= 42
+    316:note <= 42    
+    317:note <= 42
+    //F# 41
+    318:note <= 41
+    319:note <= 41
+    //A 44
+    320:note <= 44
+    321:note <= 44    
+    322:note <= 44
+    323:note <= 44
+    324:note <= 44
+    325:note <= 44
+    326:note <= 44
+    327:note <= 44
+    //quarter note rest    
+    328:note <= 40
+    329:note <= 40
+    330:note <= 40
+    331:note <= 40
+    //D 37
+    332:note <= 37
+    333:note <= 37
+    //E 39
+    334:note <= 39
+    334:note <= 39
+    //F# 41
+    335:note <= 41
+    336:note <= 41
+    337:note <= 41
+    338:note <= 41
+    339:note <= 41
+    340:note <= 41
+    //G 42
+    341:note <= 42
+    342:note <= 42
+    //F# 41
+    343:note <= 41
+    344:note <= 41
+    345:note <= 41
+    346:note <= 41
+    347:note <= 41
+    348:note <= 41
+    //E 39
+    349:note <= 39
+    350:note <= 39
+    //D 37
+    351:note <= 37
+    352:note <= 37
+    353:note <= 37
+    354:note <= 37
+    355:note <= 37
+    356:note <= 37
+    357:note <= 37
+    358:note <= 37
+    //quarter note rest
+    359:note <= 0
+    360:note <= 0 
+    361:note <= 0 
+    362:note <= 0
+    //B 46
+    363:note <= 46
+    364:note <= 46
+    //C# 48
+    365:note <= 48
+    366:note <= 48
+    //D 49
+    367:note <= 49
+    368:note <= 49
+    369:note <= 49
+    370:note <= 49
+    371:note <= 49
+    372:note <= 49
+    //G 42
+    373:note <= 42
+    374:note <= 42
+    //sixteenth note rest to imitate articulation
+    375:note <= 0
+    //G
+    376:note <= 42
+    377:note <= 42
+    378:note <= 42
+    379:note <= 42
+    //F# 41
+    380:note <= 41
+    381:note <= 41
+    382:note <= 41
+    383:note <= 41
+    //A 44
+    384:note <= 44
+    385:note <= 44
+    386:note <= 44
+    387:note <= 44
+    //D 37
+    388:note <= 37
+    389:note <= 37
+    390:note <= 37
+    391:note <= 37
+    392:note <= 37
+    393:note <= 37
+    394:note <= 37
+    395:note <= 37
+    //quarter noter est
+    396:note <= 0
+    397:note <= 0
+    398:note <= 0
+    399:note <= 0
+    //D 37
+    400:note <= 37 
+    401:note <= 37
+    402:note <= 39
+    403:note <= 39
+    404:note <= 0
+    405:note <= 0
+    406:note <= 0
+    407:note <= 0
+    default: note <= 8'd0;
 endcase
 endmodule
