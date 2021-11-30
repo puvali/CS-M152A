@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module musicbox(input clk,				 
 					 input RESET, 					//Reset
-					 input sound_off,				//0 = sound on, 1 = sound off
+					 input pause,					//0 = play, 1 = pause
 					 input song_sel,				//Select song
 					 output AUDIO_IP, 			//AMP2 Pin 1: Audio Input
 					 output GAIN_SEL, 			//AMP2 Pin 2: Gain Selection
@@ -51,8 +51,14 @@ reg [7:0] octave_ctr;	//clock divider counter for octaves
 
 
 reg [33:0] tone;
-always @(posedge clk)
-	tone = tone + 1;
+always @(posedge clk) begin
+	if (RESET)
+		tone = 0;
+	else if (pause)
+		tone = tone;
+	else
+		tone = tone + 1;
+end
 
 
 reg [9:0] fullnote;
@@ -64,11 +70,17 @@ ROM1 rom1(.clk(clk), .address(tone[31:23]), .note(fullnote1));
 ROM2 rom2(.clk(clk), .address(tone[31:24]), .note(fullnote2));
 
 
-//sound_off = 0 -> ALS = 1 -> turn on amp
-//sound_off = 1 -> ALS = 0 -> turn off amp
-always @(sound_off) begin
-	ALS = ~sound_off;
-end
+always @(pause) begin	
+	if (RESET) begin
+		ALS = 0;
+	
+	end else if (pause) begin
+		ALS = 0;
+	
+	end else if (~pause) begin
+		ALS = 1;
+	end
+end 
 
 
 
@@ -81,7 +93,7 @@ wire [5:0] mins2;
 wire [5:0] secs2;
 
 //instantiate song time counter
-counter ctr_ins(RESET, song_sel, sound_off, clk_1hz, mins1, secs1, mins2, secs2);
+counter ctr_ins(RESET, song_sel, pause, clk_1hz, mins1, secs1, mins2, secs2);
 
 //how long the song has been playing
 reg [5:0] minutes;
@@ -140,7 +152,7 @@ end
 
 always @(posedge clk) begin
 	//if paused, all LEDs dark
-	if (sound_off || RESET) begin
+	if (pause || RESET) begin
 			ld7 = 0; 		 	
 			ld6 = 0;
 			ld5 = 0;

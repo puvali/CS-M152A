@@ -20,8 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 module ROM1(
 	input clk,
-	input [7:0] address,
-	output reg [7:0] note
+	input [9:0] address,
+	output reg [9:0] note
 );
 
 always @(posedge clk)
@@ -459,8 +459,8 @@ endmodule
 
 module ROM2(
 	input clk,
-	input [7:0] address,
-	output reg [7:0] note
+	input [9:0] address,
+	output reg [9:0] note
 );
 
 always @(posedge clk)
@@ -782,7 +782,7 @@ case(address)
     242:note <= 42;
     243:note <= 42;
     //rest to imitate articulation
-    244:note <= 0
+    244:note <= 0;
     //G 42
     245:note <= 42;
     246:note <= 42;
@@ -814,7 +814,7 @@ case(address)
     267:note <= 39;
     268:note <= 39;
     //sixteenth note rest to imitate articulation
-    269:note <= 0
+    269:note <= 0;
     //E 39
     270:note <= 39;
     271:note <= 39;
@@ -823,7 +823,7 @@ case(address)
     274:note <= 39;
     275:note <= 39;
     //sixteenth note rest to imitate articulation
-    276:note <= 0
+    276:note <= 0;
     //E 39
     277:note <= 39;
     278:note <= 39;
@@ -869,7 +869,7 @@ case(address)
     309:note <= 42;
     310:note <= 42;
     //sixteenth note rest to imitate articulation
-    311:note <= 0
+    311:note <= 0;
     //G 42    
     312:note <= 42;
     313:note <= 42;

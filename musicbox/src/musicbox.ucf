@@ -25,7 +25,7 @@ NET "ALS" LOC = V11;
 # Reset and song select switches
 NET "RESET" LOC = T10;
 NET "song_sel" LOC = T9;
-NET "sound_off" LOC = V9;
+NET "pause" LOC = V9;
 
 # LEDs
 NET "ld7" LOC = T11;
