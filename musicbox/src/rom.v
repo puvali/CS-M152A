@@ -465,7 +465,7 @@ module ROM2(
 
 always @(posedge clk)
 case(address)
-    //A 44
+       //A 44
     0:note <= 44;
     1:note <= 44;
     2:note <= 44;
@@ -502,110 +502,112 @@ case(address)
     //A 32
     26:note <= 32;
     27:note <= 32;
+    //quarternote rest
+    28:note<= 0;
+    29:note<= 0;
+    30:note<= 0;
+    31:note<= 0;
     //A 44
-    28:note <= 44;
-    29:note <= 44;
-    30:note <= 44;
-    31:note <= 44;
+    32:note <= 44;
+    33:note <= 44;
+    34:note <= 44;
+    35:note <= 44;
     //G 42
-    32:note <= 42;
-    33:note <= 42;
-    34:note <= 42;
-    35:note <= 42;
+    36:note <= 42;
+    37:note <= 42;
+    38:note <= 42;
+    39:note <= 42;
     //F# 41
-    36:note <= 41;
-    37:note <= 41;
-    38:note <= 41;
-    39:note <= 41;
     40:note <= 41;
     41:note <= 41;
     42:note <= 41;
     43:note <= 41;
-    //E 39
-    44:note <= 39;
-    45:note <= 39;
-    //F# 41
+    44:note <= 41;
+    45:note <= 41;
     46:note <= 41;
     47:note <= 41;
-    48:note <= 41;
-    49:note <= 41;
     //E 39
-    50:note <= 39;
+    48:note <= 39;
+    49:note <= 39;
+    //F# 41
+    50:note <= 41;
+    51:note <= 41;
+    52:note <= 41;
+    53:note <= 41;
+    //E 39
+    54:note <= 39;
     //C# 36
-    51:note <= 36;
+    55:note <= 36;
     //D 37
-    52:note <= 37;
-    53:note <= 37;
-    54:note <= 37;
-    55:note <= 37;
+    56:note <= 37;
+    57:note <= 37;
+    58:note <= 37;
+    59:note <= 37;
+    //quarternote rest
     //FIRST ENDING
     //B 46
-    56:note <= 46;
-    57:note <= 46;
-    58:note <= 46;
-    59:note <= 46;
+    60:note <= 46;
+    61:note <= 46;
+    62:note <= 46;
+    63:note <= 46;
     //A 44
-    60:note <= 44;
-    61:note <= 44;
-    62:note <= 44;
-    63:note <= 44;
+    64:note <= 44;
+    65:note <= 44;
+    66:note <= 44;
+    67:note <= 44;
     //G 42
-    64:note <= 42;
-    65:note <= 42;
-    66:note <= 42;
-    67:note <= 42;
     68:note <= 42;
     69:note <= 42;
     70:note <= 42;
     71:note <= 42;
-    //A 44
-    72:note <= 44;
-    73:note <= 44;
-    //D 49
-    74:note <= 49;
-    75:note <= 49;
+    72:note <= 42;
+    73:note <= 42;
+    74:note <= 42;
+    75:note <= 42;
     //A 44
     76:note <= 44;
     77:note <= 44;
-    //D 37
-    78:note <= 37;
-    79:note <= 37;
-    //F# 41
-    80:note <= 41;
-    81:note <= 41;
-    82:note <= 41;
-    83:note <= 41;
-    //E 39
-    84:note <= 39;
-    85:note <= 39;
-    86:note <= 39;
-    87:note <= 39;
+    //D 49
+    78:note <= 49;
+    79:note <= 49;
     //A 44
-    88:note <= 44;
-    89:note <= 44;
-    90:note <= 44;
-    91:note <= 44;
-    //eight note rest
-    92:note <= 0;
-    93:note <= 0;
-    //G 42
-    94:note <= 42;
-    95:note <= 42;
-    //F# 41
-    96:note <= 41;
-    97:note <= 41;
-    98:note <= 41;
-    99:note <= 41;
+    80:note <= 44;
+    81:note <= 44;
     //D 37
-    100:note <= 37;
-    101:note <= 37;
-    102:note <= 37;
-    103:note <= 37;
+    82:note <= 37;
+    83:note <= 37;
+    //F# 41
+    84:note <= 41;
+    85:note <= 41;
+    86:note <= 41;
+    87:note <= 41;
     //E 39
-    104:note <= 39;
-    105:note <= 39;
-    106:note <= 39;
-    107:note <= 39;
+    88:note <= 39;
+    89:note <= 39;
+    90:note <= 39;
+    91:note <= 39;
+    //A 44
+    92:note <= 44;
+    93:note <= 44;
+    94:note <= 44;
+    95:note <= 44;
+    //eight note rest
+    96:note <= 0;
+    97:note <= 0;
+    //G 42
+    98:note <= 42;
+    99:note <= 42;
+    //F# 41
+    100:note <= 41;
+    101:note <= 41;
+    102:note <= 41;
+    103:note <= 41;
+    //D 37
+    104:note <= 37;
+    105:note <= 37;
+    106:note <= 37;
+    107:note <= 37;
+    //E 39
     108:note <= 39;
     109:note <= 39;
     110:note <= 39;
@@ -614,382 +616,194 @@ case(address)
     113:note <= 39;
     114:note <= 39;
     115:note <= 39;
+    116:note <= 39;
+    117:note <= 39;
+    118:note <= 39;
+    119:note <= 39;
     //quarter note rest
-    116:note <= 0;
-    117:note <= 0;
-    118:note <= 0;
-    119:note <= 0;
+    120:note <= 0;
+    121:note <= 0;
+    122:note <= 0;
+    123:note <= 0;
     //FIRST REPEAT
     //A 44
-    120:note <= 44;
-    121:note <= 44;
-    122:note <= 44;
-    123:note <= 44;
+    124:note <= 44;
+    125:note <= 44;
+    126:note <= 44;
+    127:note <= 44;
     //G 42
-    124:note <= 42;
-    125:note <= 42;
-    126:note <= 42;
-    127:note <= 42;
+    128:note <= 42;
+    129:note <= 42;
+    130:note <= 42;
+    131:note <= 42;
     //F# 41
-    128:note <= 41;
-    129:note <= 41;
-    130:note <= 41; 
-    131:note <= 41;
     132:note <= 41;
     133:note <= 41;
     134:note <= 41; 
     135:note <= 41;
-    //E 39
-    136:note <= 39;
-    137:note <= 39;
-    //F# 41
-    138:note <= 41;
+    136:note <= 41;
+    137:note <= 41;
+    138:note <= 41; 
     139:note <= 41;
-    140:note <= 41;
-    141:note <= 41;
     //E 39
-    142:note <= 39;
+    140:note <= 39;
+    141:note <= 39;
+    //F# 41
+    142:note <= 41;
+    143:note <= 41;
+    144:note <= 41;
+    145:note <= 41;
+    //E 39
+    146:note <= 39;
     //C# 36
-    143:note <= 36;
+    147:note <= 36;
     //D 37
-    144:note <= 37;
-    145:note <= 37;
+    148:note <= 37;
+    149:note <= 37;
     //A 32
-    146:note <= 32;
-    147:note <= 32;
+    150:note <= 32;
+    151:note <= 32;
+    //quarter note rest
+    152: note <= 0    
+    153: note <= 0
+    154: note <= 0
+    155: note <= 0
     //A 44
-    148:note <= 44;
-    149:note <= 44;
-    150:note <= 44;
-    151:note <= 44;
+    156:note <= 44;
+    157:note <= 44;
+    158:note <= 44;
+    159:note <= 44;
     //G 42
-    152:note <= 42;
-    153:note <= 42;
-    154:note <= 42;
-    155:note <= 42;
+    160:note <= 42;
+    161:note <= 42;
+    162:note <= 42;
+    163:note <= 42;
     //F# 41
-    156:note <= 41;
-    157:note <= 41;
-    158:note <= 41;
-    159:note <= 41;
-    160:note <= 41;
-    161:note <= 41;
-    162:note <= 41;
-    163:note <= 41;
-    //E 39
-    164:note <= 39;
-    165:note <= 39;
-    //F# 41
+    164:note <= 41;
+    165:note <= 41;
     166:note <= 41;
     167:note <= 41;
     168:note <= 41;
     169:note <= 41;
+    170:note <= 41;
+    171:note <= 41;
     //E 39
-    170:note <= 39;
+    172:note <= 39;
+    173:note <= 39;
+    //F# 41
+    174:note <= 41;
+    175:note <= 41;
+    176:note <= 41;
+    177:note <= 41;
+    //E 39
+    178:note <= 39;
     //C# 36
-    171:note <= 36;
+    179:note <= 36;
     //D 37
-    172:note <= 37;
-    173:note <= 37;
-    174:note <= 37;
-    175:note <= 37;
+    180:note <= 37;
+    181:note <= 37;
+    182:note <= 37;
+    183:note <= 37;
     //SECOND ENDING
     //B 46
-    176:note <= 46;
-    177:note <= 46;
-    178:note <= 46;
-    179:note <= 46;
+    184:note <= 46;
+    185:note <= 46;
+    186:note <= 46;
+    187:note <= 46;
     //A 44
-    180:note <= 44;
-    181:note <= 44;
-    182:note <= 44;
-    183:note <= 44;
+    188:note <= 44;
+    189:note <= 44;
+    190:note <= 44;
+    191:note <= 44;
     //G
-    184:note <= 42;
-    185:note <= 42;
-    186:note <= 42;
-    187:note <= 42;
+    192:note <= 42;
+    193:note <= 42;
+    194:note <= 42;
+    195:note <= 42;
     //eight note rest
-    188:note <= 0;
-    189:note <= 0;
+    196:note <= 0;
+    197:note <= 0;
     //D 37
-    190:note <= 37;
-    191:note <= 37;
+    198:note <= 37;
+    199:note <= 37;
     //C# 48
-    192:note <= 48;
-    193:note <= 48;
-    194:note <= 48;
-    195:note <= 48;
+    200:note <= 48;
+    201:note <= 48;
+    202:note <= 48;
+    203:note <= 48;
     //B 46
-    196:note <= 46;
-    197:note <= 46;
-    198:note <= 46;
-    199:note <= 46;
+    204:note <= 46;
+    205:note <= 46;
+    206:note <= 46;
+    207:note <= 46;
     //A 44
-    200:note <= 44;
-    201:note <= 44;
-    202:note <= 44;
-    203:note <= 44;
+    208:note <= 44;
+    209:note <= 44;
+    210:note <= 44;
+    211:note <= 44;
     //D 37
-    204:note <= 37;
-    205:note <= 37;
+    212:note <= 37;
+    213:note <= 37;
     //D 49
-    206:note <= 49;
-    207:note <= 49;
-    208:note <= 49;
-    209:note <= 49;
-    210:note <= 49;
-    211:note <= 49;
+    214:note <= 49;
+    215:note <= 49;
+    216:note <= 49;
+    217:note <= 49;
+    218:note <= 49;
+    219:note <= 49;
     //C# 48
-    212:note <= 48;
-    213:note <= 48;
+    220:note <= 48;
+    221:note <= 48;
     //B 46
-    214:note <= 46;
-    215:note <= 46;
-    216:note <= 46;
-    217:note <= 46;   
-    218:note <= 46;
-    219:note <= 46;
+    222:note <= 46;
+    223:note <= 46;
+    224:note <= 46;
+    225:note <= 46;   
+    226:note <= 46;
+    227:note <= 46;
     //F# 41
-    220:note <= 41;
-    221:note <= 41;
+    228:note <= 41;
+    229:note <= 41;
     //A
-    222:note <= 44;
-    223:note <= 44;   
-    224:note <= 44;
-    225:note <= 44;
-    226:note <= 44;
-    227:note <= 44;
-    228:note <= 44;
-    229:note <= 44;
+    231:note <= 44;
+    232:note <= 44;   
+    233:note <= 44;
+    234:note <= 44;
+    235:note <= 44;
+    236:note <= 44;
+    237:note <= 44;
+    238:note <= 44;
     //eight note rest
-    230:note <= 0;
-    231:note <= 0;
+    239:note <= 0;
+    240:note <= 0;
     //B 46
-    232:note <= 46;
-    233:note <= 46;
+    241:note <= 46;
+    242:note <= 46;
     //C# 48
-    234:note <= 48;
-    235:note <= 48;
+    243:note <= 48;
+    244:note <= 48;
     //D 49
-    236:note <= 49;
-    237:note <= 49;
-    238:note <= 49;
-    239:note <= 49;
+    245:note <= 49;
+    246:note <= 49;
+    247:note <= 49;
+    248:note <= 49;
     //G 42
-    240:note <= 42;
-    241:note <= 42;
-    242:note <= 42;
-    243:note <= 42;
-    //rest to imitate articulation
-    244:note <= 0
-    //G 42
-    245:note <= 42;
-    246:note <= 42;
-    247:note <= 42;    
-    248:note <= 42;
     249:note <= 42;
     250:note <= 42;
-    //F# 41
-    251:note <= 41;
-    252:note <= 41;
-    //A 44
-    253:note <= 44;   
-    254:note <= 44;
-    255:note <= 44;
-    256:note <= 44;
-    257:note <= 44;
-    258:note <= 44;
-    259:note <= 44;
-    260:note <= 44;
-    //quarter note rest
-    261:note <= 0;
-    262:note <= 0;
-    263:note <= 0;
-    264:note <= 0;
-    //D 37
-    265:note <= 37;
-    266:note <= 37;
-    //E 39
-    267:note <= 39;
-    268:note <= 39;
-    //sixteenth note rest to imitate articulation
-    269:note <= 0
-    //E 39
-    270:note <= 39;
-    271:note <= 39;
-    272:note <= 39;
-    273:note <= 39;
-    274:note <= 39;
-    275:note <= 39;
-    //sixteenth note rest to imitate articulation
-    276:note <= 0
-    //E 39
-    277:note <= 39;
-    278:note <= 39;
-    //A 44
-    279:note <= 44;
-    280:note <= 44;
-    281:note <= 44;
-    282:note <= 44;
-    283:note <= 44;
-    284:note <= 44;
+    251:note <= 42;
+    252:note <= 42;
+    //rest to imitate articulation
+    253:note <= 0
     //G 42
-    285:note <= 42;
-    286:note <= 42;
-    //G 42
-    287:note <= 42;
-    288:note <= 42;
-    289:note <= 42;
-    290:note <= 42;
+    254:note <= 42;
+    255:note <= 42;
+    256:note <= 42;    
+    257:note <= 42;
+    258:note <= 42;
+    259:note <= 42;
     //F# 41
-    291:note <= 41;
-    292:note <= 41;
-    293:note <= 41;
-    294:note <= 41;
-    //quarter note rest
-    295:note <= 0;
-    296:note <= 0;
-    297:note <= 0;
-    298:note <= 0;
-    //B 46
-    299:note <= 46;
-    300:note <= 46;
-    //C# 48
-    301:note <= 48;
-    302:note <= 48;
-    //D 49
-    303:note <= 49;
-    304:note <= 49;
-    305:note <= 49;    
-    306:note <= 49;
-    //G 42
-    307:note <= 42;
-    308:note <= 42;
-    309:note <= 42;
-    310:note <= 42;
-    //sixteenth note rest to imitate articulation
-    311:note <= 0
-    //G 42    
-    312:note <= 42;
-    313:note <= 42;
-    314:note <= 42;
-    315:note <= 42;
-    316:note <= 42;    
-    317:note <= 42;
-    //F# 41
-    318:note <= 41;
-    319:note <= 41;
-    //A 44
-    320:note <= 44;
-    321:note <= 44;    
-    322:note <= 44;
-    323:note <= 44;
-    324:note <= 44;
-    325:note <= 44;
-    326:note <= 44;
-    327:note <= 44;
-    //quarter note rest    
-    328:note <= 40;
-    329:note <= 40;
-    330:note <= 40;
-    331:note <= 40;
-    //D 37
-    332:note <= 37;
-    333:note <= 37;
-    //E 39
-    334:note <= 39;
-    334:note <= 39;
-    //F# 41
-    335:note <= 41;
-    336:note <= 41;
-    337:note <= 41;
-    338:note <= 41;
-    339:note <= 41;
-    340:note <= 41;
-    //G 42
-    341:note <= 42;
-    342:note <= 42;
-    //F# 41
-    343:note <= 41;
-    344:note <= 41;
-    345:note <= 41;
-    346:note <= 41;
-    347:note <= 41;
-    348:note <= 41;
-    //E 39
-    349:note <= 39;
-    350:note <= 39;
-    //D 37
-    351:note <= 37;
-    352:note <= 37;
-    353:note <= 37;
-    354:note <= 37;
-    355:note <= 37;
-    356:note <= 37;
-    357:note <= 37;
-    358:note <= 37;
-    //quarter note rest
-    359:note <= 0;
-    360:note <= 0; 
-    361:note <= 0; 
-    362:note <= 0;
-    //B 46
-    363:note <= 46;
-    364:note <= 46;
-    //C# 48
-    365:note <= 48;
-    366:note <= 48;
-    //D 49
-    367:note <= 49;
-    368:note <= 49;
-    369:note <= 49;
-    370:note <= 49;
-    371:note <= 49;
-    372:note <= 49;
-    //G 42
-    373:note <= 42;
-    374:note <= 42;
-    //sixteenth note rest to imitate articulation
-    375:note <= 0;
-    //G
-    376:note <= 42;
-    377:note <= 42;
-    378:note <= 42;
-    379:note <= 42;
-    //F# 41
-    380:note <= 41;
-    381:note <= 41;
-    382:note <= 41;
-    383:note <= 41;
-    //A 44
-    384:note <= 44;
-    385:note <= 44;
-    386:note <= 44;
-    387:note <= 44;
-    //D 37
-    388:note <= 37;
-    389:note <= 37;
-    390:note <= 37;
-    391:note <= 37;
-    392:note <= 37;
-    393:note <= 37;
-    394:note <= 37;
-    395:note <= 37;
-    //quarter noter est
-    396:note <= 0;
-    397:note <= 0;
-    398:note <= 0;
-    399:note <= 0;
-    //D 37
-    400:note <= 37; 
-    401:note <= 37;
-    402:note <= 39;
-    403:note <= 39;
-    404:note <= 0;
-    405:note <= 0;
-    406:note <= 0;
-    407:note <= 0;
+    260:note <= 41;
+    261:note <= 41;
     default: note <= 8'd0;
 endcase
 endmodule
