@@ -793,7 +793,7 @@ case(address)
     250:note <= 42;
     251:note <= 42;
     //rest to imitate articulation
-    252:note <= 0
+    252:note <= 0;
     //G 42
     253:note <= 42;
     254:note <= 42;
@@ -825,7 +825,7 @@ case(address)
     275:note <= 39;
     276:note <= 39;
     //sixteenth note rest to imitate articulation
-    277:note <= 0
+    277:note <= 0;
     //E 39
     278:note <= 39;
     279:note <= 39;
@@ -834,7 +834,7 @@ case(address)
     282:note <= 39;
     283:note <= 39;
     //sixteenth note rest to imitate articulation
-    284:note <= 0
+    284:note <= 0;
     //E 39
     285:note <= 39;
     286:note <= 39;
@@ -880,7 +880,7 @@ case(address)
     318:note <= 42;
     319:note <= 42;
     //sixteenth note rest to imitate articulation
-    320:note <= 0
+    320:note <= 0;
     //G 42    
     321:note <= 42;
     323:note <= 42;
