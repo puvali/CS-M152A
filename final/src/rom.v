@@ -664,10 +664,10 @@ case(address)
     150:note <= 32;
     151:note <= 32;
     //quarter note rest
-    152: note <= 0    
-    153: note <= 0
-    154: note <= 0
-    155: note <= 0
+    152: note <= 0;   
+    153: note <= 0;
+    154: note <= 0;
+    155: note <= 0;
     //A 44
     156:note <= 44;
     157:note <= 44;
@@ -794,7 +794,7 @@ case(address)
     250:note <= 42;
     251:note <= 42;
     //rest to imitate articulation
-    252:note <= 0
+    252:note <= 0;
     //G 42
     253:note <= 42;
     254:note <= 42;
