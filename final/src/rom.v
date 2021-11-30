@@ -855,6 +855,7 @@ case(address)
     298:note <= 42;
     //F# 41
     299:note <= 41;
+    300:note <= 41;
     301:note <= 41;
     302:note <= 41;
     303:note <= 41;
