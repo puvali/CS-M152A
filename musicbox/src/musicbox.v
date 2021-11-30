@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module musicbox(input clk,				 
 					 input RESET, 					//Reset
-					 input play_pause,			//Play/pause switch
+					 input sound_off,				//0 = sound on, 1 = sound off
 					 input song_sel,				//Select song
 					 output AUDIO_IP, 			//AMP2 Pin 1: Audio Input
 					 output GAIN_SEL, 			//AMP2 Pin 2: Gain Selection
@@ -45,12 +45,6 @@ wire clk_1hz, ssg_clk;
 clock clk_ins(RESET, clk, clk_1hz, ssg_clk); 
 
 
-/*
-//debounce play/pause pushbutton input
-wire pp_db;
-debouncer db_ins(.clk(clk), .fast_clk(ssg_clk), .button(play_pause), .bounce_state(pp_db));
-*/
-
 reg [11:0] dv;				//divisor for clock divider logic
 reg [11:0] note_ctr;		//clock divider counter for notes
 reg [7:0] octave_ctr;	//clock divider counter for octaves
@@ -70,19 +64,10 @@ ROM1 rom1(.clk(clk), .address(tone[31:23]), .note(fullnote1));
 ROM2 rom2(.clk(clk), .address(tone[31:24]), .note(fullnote2));
 
 
-
-reg ispaused;
-always @(posedge play_pause) begin
-	//if paused --> play
-	if (ispaused) begin
-		ispaused = 0;
-		ALS = 1;		//turn on amp
-	
-	//if playing --> pause
-	end else begin
-		ispaused = 1;
-		ALS = 0;		//turn off amp	
-	end
+//sound_off = 0 -> ALS = 1 -> turn on amp
+//sound_off = 1 -> ALS = 0 -> turn off amp
+always @(sound_off) begin
+	ALS = ~sound_off;
 end
 
 
@@ -96,7 +81,7 @@ wire [5:0] mins2;
 wire [5:0] secs2;
 
 //instantiate song time counter
-counter ctr_ins(RESET, song_sel, ispaused, clk_1hz, mins1, secs1, mins2, secs2);
+counter ctr_ins(RESET, song_sel, sound_off, clk_1hz, mins1, secs1, mins2, secs2);
 
 //how long the song has been playing
 reg [5:0] minutes;
@@ -154,139 +139,152 @@ always @ (note) begin
 end
 
 always @(posedge clk) begin
-	case(note) 
-		0:  begin 
-				ld7 = 1; 		 	
-				ld6 = 0;
-				ld5 = 0;
-				ld4 = 0;
-				ld3 = 0;
-				ld2 = 0;
-				ld1 = 0;
-				ld0 = 0; 
-			end	//A
-		
-		1:	 begin 
-				ld7 = 0; 		 	
-				ld6 = 1;
-				ld5 = 0;
-				ld4 = 0;
-				ld3 = 0;
-				ld2 = 0;
-				ld1 = 0;
-				ld0 = 1; 
-			end	//Bb
-		
-		2:	 begin 
-				ld7 = 0; 		 	
-				ld6 = 1;
-				ld5 = 0;
-				ld4 = 0;
-				ld3 = 0;
-				ld2 = 0;
-				ld1 = 0;
-				ld0 = 0; 
-			end	//B
-		
-		3:  begin 
-				ld7 = 0; 		 	
-				ld6 = 0;
-				ld5 = 1;
-				ld4 = 0;
-				ld3 = 0;
-				ld2 = 0;
-				ld1 = 0;
-				ld0 = 0;
-			end	//C
-		
-		4:  begin 
-				ld7 = 0; 		 	
-				ld6 = 0;
-				ld5 = 0;
-				ld4 = 1;
-				ld3 = 0;
-				ld2 = 0;
-				ld1 = 0;
-				ld0 = 1; 
-			end 	//Db
-		
-		5:  begin 
-				ld7 = 0; 		 	
-				ld6 = 0;
-				ld5 = 0;
-				ld4 = 1;
-				ld3 = 0;
-				ld2 = 0;
-				ld1 = 0;
-				ld0 = 0;
-			end 	//D
-		
-		6:  begin 
-				ld7 = 0; 		 	
-				ld6 = 0;
-				ld5 = 0;
-				ld4 = 0;
-				ld3 = 1;
-				ld2 = 0;
-				ld1 = 0;
-				ld0 = 1; 
-			end	//Eb
-		
-		7:  begin 
-				ld7 = 0; 		 	
-				ld6 = 0;
-				ld5 = 0;
-				ld4 = 0;
-				ld3 = 1;
-				ld2 = 0;
-				ld1 = 0;
-				ld0 = 0;
-			end	//E
-		
-		8:  begin 
-				ld7 = 0; 		 	
-				ld6 = 0;
-				ld5 = 0;
-				ld4 = 0;
-				ld3 = 0;
-				ld2 = 1;
-				ld1 = 0;
-				ld0 = 0; 
-			end	//F
-		
-		9:  begin 
-				ld7 = 0; 		 	
-				ld6 = 0;
-				ld5 = 0;
-				ld4 = 0;
-				ld3 = 0;
-				ld2 = 0;
-				ld1 = 1;
-				ld0 = 1; 
-			end	//Gb
-		
-		10: begin 	
-				ld7 = 0; 		 	
-				ld6 = 0;
-				ld5 = 0;
-				ld4 = 0;
-				ld3 = 0;
-				ld2 = 0;
-				ld1 = 1;
-				ld0 = 0;
-			end	//G
-		
-		11: begin 
-				ld7 = 1; 		 	
-				ld6 = 0;
-				ld5 = 0;
-				ld4 = 0;
-				ld3 = 0;
-				ld2 = 0;
-				ld1 = 0;
-				ld0 = 1;
-			end	//Ab
-	endcase
+	//if paused, all LEDs dark
+	if (sound_off || RESET) begin
+			ld7 = 0; 		 	
+			ld6 = 0;
+			ld5 = 0;
+			ld4 = 0;
+			ld3 = 0;
+			ld2 = 0;
+			ld1 = 0;
+			ld0 = 0;
+	
+	end else begin
+		case(note) 
+			0:  begin 
+					ld7 = 1; 		 	
+					ld6 = 0;
+					ld5 = 0;
+					ld4 = 0;
+					ld3 = 0;
+					ld2 = 0;
+					ld1 = 0;
+					ld0 = 0; 
+				end	//A
+			
+			1:	 begin 
+					ld7 = 0; 		 	
+					ld6 = 1;
+					ld5 = 0;
+					ld4 = 0;
+					ld3 = 0;
+					ld2 = 0;
+					ld1 = 0;
+					ld0 = 1; 
+				end	//Bb
+			
+			2:	 begin 
+					ld7 = 0; 		 	
+					ld6 = 1;
+					ld5 = 0;
+					ld4 = 0;
+					ld3 = 0;
+					ld2 = 0;
+					ld1 = 0;
+					ld0 = 0; 
+				end	//B
+			
+			3:  begin 
+					ld7 = 0; 		 	
+					ld6 = 0;
+					ld5 = 1;
+					ld4 = 0;
+					ld3 = 0;
+					ld2 = 0;
+					ld1 = 0;
+					ld0 = 0;
+				end	//C
+			
+			4:  begin 
+					ld7 = 0; 		 	
+					ld6 = 0;
+					ld5 = 0;
+					ld4 = 1;
+					ld3 = 0;
+					ld2 = 0;
+					ld1 = 0;
+					ld0 = 1; 
+				end 	//Db
+			
+			5:  begin 
+					ld7 = 0; 		 	
+					ld6 = 0;
+					ld5 = 0;
+					ld4 = 1;
+					ld3 = 0;
+					ld2 = 0;
+					ld1 = 0;
+					ld0 = 0;
+				end 	//D
+			
+			6:  begin 
+					ld7 = 0; 		 	
+					ld6 = 0;
+					ld5 = 0;
+					ld4 = 0;
+					ld3 = 1;
+					ld2 = 0;
+					ld1 = 0;
+					ld0 = 1; 
+				end	//Eb
+			
+			7:  begin 
+					ld7 = 0; 		 	
+					ld6 = 0;
+					ld5 = 0;
+					ld4 = 0;
+					ld3 = 1;
+					ld2 = 0;
+					ld1 = 0;
+					ld0 = 0;
+				end	//E
+			
+			8:  begin 
+					ld7 = 0; 		 	
+					ld6 = 0;
+					ld5 = 0;
+					ld4 = 0;
+					ld3 = 0;
+					ld2 = 1;
+					ld1 = 0;
+					ld0 = 0; 
+				end	//F
+			
+			9:  begin 
+					ld7 = 0; 		 	
+					ld6 = 0;
+					ld5 = 0;
+					ld4 = 0;
+					ld3 = 0;
+					ld2 = 0;
+					ld1 = 1;
+					ld0 = 1; 
+				end	//Gb
+			
+			10: begin 	
+					ld7 = 0; 		 	
+					ld6 = 0;
+					ld5 = 0;
+					ld4 = 0;
+					ld3 = 0;
+					ld2 = 0;
+					ld1 = 1;
+					ld0 = 0;
+				end	//G
+			
+			11: begin 
+					ld7 = 1; 		 	
+					ld6 = 0;
+					ld5 = 0;
+					ld4 = 0;
+					ld3 = 0;
+					ld2 = 0;
+					ld1 = 0;
+					ld0 = 1;
+				end	//Ab
+		endcase
+	end
 end
 		 
 		
@@ -322,7 +320,7 @@ always @(posedge clk) begin
 		speaker = ~speaker;
 end
 
-assign AUDIO_IP = speaker;
+assign AUDIO_IP = speaker & (tone[6:0] == 0);
 assign GAIN_SEL = 1;				//12 dB gain for low, 6 dB gain for high 
 
 
@@ -340,10 +338,11 @@ segments s1(.digit(sec_ones), .cathode(cathode0));
 
 reg [1:0] digit_switch;
 always @(posedge ssg_clk, posedge RESET) begin
-	if (RESET)
+	if (RESET) begin
 		digit_switch = 0;
+		anode = 4'b1111;
 	
-	else if (digit_switch == 0) begin
+	end else if (digit_switch == 0) begin
 		anode = 4'b0111;
 		cathode = cathode3;
 		digit_switch = digit_switch + 1;

@@ -17,17 +17,15 @@ NET "cathode[0]" LOC = L14;
 #100 MHz internal clock
 NET "clk" LOC = V10;
 
-# PMOD AMP Pins 1, 2 and 4
+# PMOD AMP Pins 1, 2 and 4 - JA lower row (JA8, JA9 and JA10)
 NET "AUDIO_IP" LOC = M10;
 NET "GAIN_SEL" LOC = N9;
 NET "ALS" LOC = V11;
 
-# Play/pause pushbutton
-NET "play_pause" LOC = B8;
-
 # Reset and song select switches
 NET "RESET" LOC = T10;
 NET "song_sel" LOC = T9;
+NET "sound_off" LOC = V9;
 
 # LEDs
 NET "ld7" LOC = T11;
