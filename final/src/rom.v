@@ -789,7 +789,7 @@ case(address)
     247:note <= 49;
     //G 42
     248:note <= 42;
-    259:note <= 42;
+    249:note <= 42;
     250:note <= 42;
     251:note <= 42;
     //rest to imitate articulation
@@ -855,6 +855,7 @@ case(address)
     298:note <= 42;
     //F# 41
     299:note <= 41;
+	 300:note <= 41;
     301:note <= 41;
     302:note <= 41;
     303:note <= 41;
