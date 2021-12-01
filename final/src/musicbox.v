@@ -67,16 +67,14 @@ wire [10:0] fullnote2;
 
 
 ROM1 rom1(.clk(clk), .address(tone[31:23]), .note(fullnote1));
-ROM2 rom2(.clk(clk), .address(tone[31:24]), .note(fullnote2));
+ROM2 rom2(.clk(clk), .address(tone[32:24]), .note(fullnote2));
 
 
 always @(pause) begin	
 	if (RESET) begin
-		ALS = 0;
-	
+		ALS = 0;	
 	end else if (pause) begin
-		ALS = 0;
-	
+		ALS = 0;	
 	end else if (~pause) begin
 		ALS = 1;
 	end
@@ -103,6 +101,7 @@ wire [3:0] min_tens;
 wire [3:0] min_ones;
 wire [3:0] sec_tens;
 wire [3:0] sec_ones;
+
 
 always @(song_sel) begin
 	//song 1
