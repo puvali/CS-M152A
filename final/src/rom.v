@@ -776,7 +776,7 @@ case(address)
     //eight note rest
     238:note <= 0;
     239:note <= 0;
-    //B 46
+    //B 46: And at last...
     240:note <= 46;
     241:note <= 46;
     //C# 48
@@ -793,7 +793,7 @@ case(address)
     250:note <= 42;
     251:note <= 42;
     //rest to imitate articulation
-    252:note <= 0
+    252:note <= 42;
     //G 42
     253:note <= 42;
     254:note <= 42;
@@ -825,7 +825,7 @@ case(address)
     275:note <= 39;
     276:note <= 39;
     //sixteenth note rest to imitate articulation
-    277:note <= 0
+    277:note <= 39;
     //E 39
     278:note <= 39;
     279:note <= 39;
@@ -834,7 +834,7 @@ case(address)
     282:note <= 39;
     283:note <= 39;
     //sixteenth note rest to imitate articulation
-    284:note <= 0
+    284:note <= 39;
     //E 39
     285:note <= 39;
     286:note <= 39;
@@ -906,8 +906,8 @@ case(address)
     340:note <= 40;
     341:note <= 40;
     //D 37
-    342:note <= 37;
-    343:note <= 37;
+    342:note <= 36;
+    343:note <= 36;
     //E 39
     344:note <= 39;
     345:note <= 39;
@@ -945,8 +945,10 @@ case(address)
     370:note <= 0; 
     371:note <= 0; 
     372:note <= 0;
-    //B 46
-    373:note <= 46;
+    
+	 /*
+	 //B 46
+    373:note <= 47;
     374:note <= 46;
     //C# 48
     375:note <= 48;
@@ -990,13 +992,15 @@ case(address)
     //quarter noter est
     406:note <= 0;
     407:note <= 0;
-    408:note <= 0;
-    409:note <= 0;
+	 */
+	 
+    373:note <= 0;
+    374:note <= 0;
     //rest
-    410:note <= 0; 
-    411:note <= 0;
-    412:note <= 0;
-    413:note <= 0;
+    375:note <= 0; 
+    376:note <= 0;
+    377:note <= 0;
+    378:note <= 0;
     default: note <= 0;
 endcase
 endmodule

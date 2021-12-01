@@ -81,7 +81,6 @@ always @(pause) begin
 end 
 
 
-
 //song 1 minutes and seconds 
 wire [5:0] mins1;
 wire [5:0] secs1;
@@ -121,7 +120,6 @@ assign min_tens = minutes / 10;
 assign min_ones = minutes - (min_tens * 10);
 assign sec_tens = seconds / 10;
 assign sec_ones = seconds - (sec_tens * 10);
-
 
 
 wire [2:0] octave;
