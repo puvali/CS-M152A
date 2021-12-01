@@ -902,13 +902,13 @@ case(address)
     336:note <= 44;
     337:note <= 44;
     //quarter note rest    
-    338:note <= 40;
-    339:note <= 40;
-    340:note <= 40;
-    341:note <= 40;
+    338:note <= 0;
+    339:note <= 0;
+    340:note <= 0;
+    341:note <= 0;
     //D 37
-    342:note <= 36;
-    343:note <= 36;
+    342:note <= 37;
+    343:note <= 37;
     //E 39
     344:note <= 39;
     345:note <= 39;
